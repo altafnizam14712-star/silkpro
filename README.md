@@ -1,2 +1,221 @@
 # Silkpro
 SilkPro premium quality products with direct WhatsApp ordering 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SilkPro | Quality Products</title>
+
+<meta name="description" content="SilkPro offers quality products with Cash on Delivery and direct WhatsApp ordering across Pakistan.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:#111;
+    color:#fff;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+header h1{
+    margin:0;
+    font-size:22px;
+    letter-spacing:1px;
+}
+header .social a{
+    color:#fff;
+    margin-left:12px;
+    font-size:18px;
+}
+.fa-whatsapp{color:#25D366;}
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1521334884684-d80222895322");
+    background-size:cover;
+    background-position:center;
+    color:#fff;
+    text-align:center;
+    padding:80px 20px;
+}
+.hero h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+.hero p{
+    font-size:16px;
+    margin-bottom:20px;
+}
+.hero a{
+    background:#25D366;
+    color:#fff;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+.section h3{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+.card{
+    background:#fff;
+    border-radius:8px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.card img{
+    width:100%;
+    border-radius:5px;
+}
+.card h4{
+    margin:10px 0 5px;
+}
+.card p{
+    font-weight:bold;
+    color:#000;
+}
+.card a{
+    display:block;
+    margin-top:10px;
+    background:#111;
+    color:#fff;
+    padding:10px;
+    border-radius:5px;
+    text-decoration:none;
+}
+
+/* TRUST */
+.trust{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+.trust div{
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+}
+.trust i{
+    font-size:30px;
+    color:#111;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:#fff;
+    padding:20px;
+    text-align:center;
+}
+footer a{
+    color:#fff;
+    margin:0 8px;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SilkPro</h1>
+    <div class="social">
+        <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/altafnizam14712" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923001007459" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</header>
+
+<section class="hero">
+    <h2>Quality Products | Trusted Store</h2>
+    <p>Cash on Delivery • Direct WhatsApp Orders</p>
+    <a href="https://wa.me/923001007459" target="_blank">
+        Order on WhatsApp
+    </a>
+</section>
+
+<section class="section">
+    <h3>Our Products</h3>
+    <div class="products">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300">
+            <h4>Premium Product</h4>
+            <p>Rs. 2,999</p>
+            <a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20this%20product" target="_blank">
+                Order Now
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300">
+            <h4>Quality Item</h4>
+            <p>Rs. 1,999</p>
+            <a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20this%20product" target="_blank">
+                Order Now
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h3>Why Choose SilkPro</h3>
+    <div class="trust">
+        <div>
+            <i class="fas fa-truck"></i>
+            <p>Cash on Delivery</p>
+        </div>
+        <div>
+            <i class="fas fa-check-circle"></i>
+            <p>Trusted Online Store</p>
+        </div>
+        <div>
+            <i class="fas fa-headset"></i>
+            <p>Fast WhatsApp Support</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>📧 silkpro.officail@gmail.com | 📞 0300-1007459</p>
+    <div>
+        <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/altafnizam14712" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923001007459" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>© 2025 SilkPro. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
