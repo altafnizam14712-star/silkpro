@@ -2,257 +2,217 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SilkPro | Premium Silk Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SilkPro | Quality Products</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="SilkPro offers quality products with Cash on Delivery and direct WhatsApp ordering across Pakistan.">
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
 body{
-    background:#f9f9f9;
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
     color:#333;
 }
-a{text-decoration:none;color:inherit;}
 
 /* HEADER */
 header{
-    background:#fff;
-    padding:20px 40px;
+    background:#111;
+    color:#fff;
+    padding:15px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    position:sticky;
-    top:0;
-    z-index:100;
 }
 header h1{
-    color:#ff6600;
-    font-size:28px;
-}
-nav a{
-    margin:0 15px;
-    font-weight:500;
-}
-nav a:hover{color:#ff6600;}
-
-.social a{
+    margin:0;
     font-size:22px;
-    margin-left:15px;
+    letter-spacing:1px;
 }
-.social .fa-whatsapp{color:#25D366;}
-.social a:hover{color:#ff6600;}
+header .social a{
+    color:#fff;
+    margin-left:12px;
+    font-size:18px;
+}
+.fa-whatsapp{color:#25D366;}
 
 /* HERO */
 .hero{
-    height:500px;
-    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-    url("https://images.unsplash.com/photo-1600180758890-6b94519a8ba6") center/cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1521334884684-d80222895322");
+    background-size:cover;
+    background-position:center;
     color:#fff;
+    text-align:center;
+    padding:80px 20px;
 }
 .hero h2{
-    font-size:48px;
+    font-size:32px;
+    margin-bottom:10px;
+}
+.hero p{
+    font-size:16px;
     margin-bottom:20px;
 }
-.hero button{
-    padding:15px 35px;
-    font-size:18px;
-    background:#ff6600;
-    border:none;
+.hero a{
+    background:#25D366;
     color:#fff;
-    border-radius:8px;
-    cursor:pointer;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
 }
-.hero button:hover{background:#e65c00;}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+.section h3{
+    text-align:center;
+    margin-bottom:30px;
+}
 
 /* PRODUCTS */
 .products{
-    padding:70px 40px;
-    text-align:center;
-}
-.products h2{
-    font-size:36px;
-    margin-bottom:40px;
-}
-.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 .card{
     background:#fff;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-    transition:.3s;
+    border-radius:8px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
-.card:hover{transform:translateY(-10px);}
 .card img{
     width:100%;
-    border-radius:15px;
+    border-radius:5px;
 }
-.card h3{
-    margin:15px 0 5px;
+.card h4{
+    margin:10px 0 5px;
 }
-.price{
-    color:#ff6600;
-    font-weight:600;
-    margin-bottom:10px;
+.card p{
+    font-weight:bold;
+    color:#000;
 }
-.card a button{
-    padding:10px 25px;
-    border:none;
-    background:#25D366;
+.card a{
+    display:block;
+    margin-top:10px;
+    background:#111;
     color:#fff;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:16px;
+    padding:10px;
+    border-radius:5px;
+    text-decoration:none;
 }
-.card a button:hover{background:#1ebe5d;}
 
-/* ABOUT */
-.about{
+/* TRUST */
+.trust{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+.trust div{
     background:#fff;
-    padding:70px 40px;
-    text-align:center;
+    padding:20px;
+    border-radius:8px;
 }
-.about p{
-    max-width:700px;
-    margin:auto;
-    line-height:1.8;
-}
-
-/* CONTACT */
-.contact{
-    padding:70px 40px;
-    background:#f1f1f1;
-    text-align:center;
-}
-.contact-info{
-    margin-top:30px;
-    font-size:18px;
-}
-.contact-info i{
-    color:#ff6600;
-    margin-right:10px;
+.trust i{
+    font-size:30px;
+    color:#111;
+    margin-bottom:10px;
 }
 
 /* FOOTER */
 footer{
-    background:#222;
+    background:#111;
     color:#fff;
-    padding:25px;
+    padding:20px;
     text-align:center;
 }
 footer a{
-    color:#ff6600;
-    font-size:22px;
-    margin:0 10px;
-}
-
-@media(max-width:768px){
-    .hero h2{font-size:32px;}
+    color:#fff;
+    margin:0 8px;
+    font-size:18px;
 }
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
 <header>
     <h1>SilkPro</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
     <div class="social">
+        <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://instagram.com/altafnizam14712" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/923001007459" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-    <div>
-        <h2>Premium Silk for Every Occasion</h2>
-        <button onclick="location.href='#products'">Shop Now</button>
+<section class="hero">
+    <h2>Quality Products | Trusted Store</h2>
+    <p>Cash on Delivery • Direct WhatsApp Orders</p>
+    <a href="https://wa.me/923001007459" target="_blank">
+        Order on WhatsApp
+    </a>
+</section>
+
+<section class="section">
+    <h3>Our Products</h3>
+    <div class="products">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300">
+            <h4>Premium Product</h4>
+            <p>Rs. 2,999</p>
+            <a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20this%20product" target="_blank">
+                Order Now
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300">
+            <h4>Quality Item</h4>
+            <p>Rs. 1,999</p>
+            <a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20this%20product" target="_blank">
+                Order Now
+            </a>
+        </div>
+
     </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-<h2>Featured Products</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>Silk Scarf</h3>
-<div class="price">PKR 2,500</div>
-<a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Silk%20Scarf" target="_blank">
-<button>Order on WhatsApp</button>
-</a>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>Silk Saree</h3>
-<div class="price">PKR 18,000</div>
-<a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Silk%20Saree" target="_blank">
-<button>Order on WhatsApp</button>
-</a>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300">
-<h3>Silk Tie</h3>
-<div class="price">PKR 1,800</div>
-<a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Silk%20Tie" target="_blank">
-<button>Order on WhatsApp</button>
-</a>
-</div>
-
-</div>
+<section class="section">
+    <h3>Why Choose SilkPro</h3>
+    <div class="trust">
+        <div>
+            <i class="fas fa-truck"></i>
+            <p>Cash on Delivery</p>
+        </div>
+        <div>
+            <i class="fas fa-check-circle"></i>
+            <p>Trusted Online Store</p>
+        </div>
+        <div>
+            <i class="fas fa-headset"></i>
+            <p>Fast WhatsApp Support</p>
+        </div>
+    </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-<h2>About SilkPro</h2>
-<p>
-SilkPro offers premium quality silk products with elegance and class.
-Our mission is to provide luxury silk that enhances your lifestyle.
-</p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-<h2>Contact Us</h2>
-<div class="contact-info">
-<p><i class="fas fa-envelope"></i> silkpro.officail@gmail.com</p>
-<p><i class="fas fa-phone"></i> 0300-1007459</p>
-<p><i class="fab fa-instagram"></i> @altafnizam14712</p>
-</div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-© 2025 SilkPro |
-<a href="https://instagram.com/altafnizam14712" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://wa.me/923001007459" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <p>📧 silkpro.officail@gmail.com | 📞 0300-1007459</p>
+    <div>
+        <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/altafnizam14712" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923001007459" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>© 2025 SilkPro. All Rights Reserved.</p>
 </footer>
 
 </body>
