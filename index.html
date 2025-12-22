@@ -92,11 +92,11 @@ nav a:hover{color:#ff6600;}
 /* IMAGE GALLERY */
 .gallery{
     display:flex;
-    gap:10px;
+    gap:12px;
     overflow-x:auto;
+    padding-bottom:10px;
 }
 .gallery img{
-    width:100%;
     max-width:180px;
     height:180px;
     object-fit:cover;
@@ -136,6 +136,17 @@ nav a:hover{color:#ff6600;}
 .about{background:#fff;}
 .contact{background:#f1f1f1;}
 
+.about h2{
+    font-size:36px;
+    margin-bottom:20px;
+}
+.about p{
+    max-width:800px;
+    margin:15px auto;
+    line-height:1.9;
+    font-size:17px;
+}
+
 /* FOOTER */
 footer{
     background:#222;
@@ -153,6 +164,7 @@ footer{
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -160,6 +172,7 @@ footer{
     <nav>
         <a href="#home">Home</a>
         <a href="#products">Products</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
@@ -176,7 +189,7 @@ footer{
 
 <div class="grid">
 
-<!-- TOMMY HILFIGER WATCH -->
+<!-- WATCH 1 -->
 <div class="card">
     <div class="gallery">
         <img src="tommie watch.jpg">
@@ -186,7 +199,7 @@ footer{
 
     <p class="desc">
         Stylish premium men's watch with elegant dial, durable strap,
-        and casual-luxury design. Perfect for daily wear & gifting.
+        and casual-luxury design.
     </p>
 
     <p class="desc">
@@ -197,8 +210,30 @@ footer{
 
     <div class="price">PKR 12,999</div>
 
-    <a class="order-btn" 
-       href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Casual%20Watch" 
+    <a class="order-btn"
+       href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch"
+       target="_blank">
+       Order Now
+    </a>
+</div>
+
+<!-- WATCH 2 -->
+<div class="card">
+    <div class="gallery">
+        <img src="Casual man watch.jpeg">
+    </div>
+
+    <h3>Men's Stylish Casual Watch</h3>
+
+    <p class="desc">
+        Modern casual watch with clean design,
+        perfect for daily wear.
+    </p>
+
+    <div class="price">PKR 1,399</div>
+
+    <a class="order-btn"
+       href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch"
        target="_blank">
        Order Now
     </a>
@@ -207,39 +242,17 @@ footer{
 </div>
 </section>
 
-<section class="products" id="products">
-
-<div class="grid">
-
-<!-- TOMMY HILFIGER WATCH -->
-<div class="card">
-    <div class="gallery">
-        <img src="Casual man watch.jpeg">
-    </div>
-
-    <h3>Tommy Hilfiger – Men's Casual Watch</h3>
-
-    <p class="desc">
-        Stylish premium men's watch with elegant dial, durable strap,
-        and casual-luxury design. Perfect for daily wear & gifting.
-    </p>
-
-    <p class="desc">
-        ✔ Water Resistant (3 ATM)<br>
-        ✔ Quartz Movement<br>
-        ✔ Casual & Formal Use
-    </p>
-
-    <div class="price">PKR 1399</div>
-
-    <a class="order-btn" 
-       href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Casual%20Watch" 
-       target="_blank">
-       Order Now
-    </a>
-</div>
-
-</div>
+<section class="about" id="about">
+<h2>About SilkPro</h2>
+<p>
+<strong>SilkPro</strong> is a premium online store founded and managed by
+<strong>Altaf Nizam</strong>.
+We focus on quality, style, and customer trust.
+</p>
+<p>
+We provide stylish products with Cash on Delivery service
+all over Pakistan. Customer satisfaction is our top priority.
+</p>
 </section>
 
 <section class="contact" id="contact">
@@ -253,3 +266,4 @@ footer{
 </footer>
 
 </body>
+</html>
