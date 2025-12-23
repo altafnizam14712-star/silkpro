@@ -111,26 +111,33 @@ nav a:hover{color:#ff6600;}
 
 /* IMAGE SLIDER */
 .gallery{
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    position:relative;
+    border-radius:14px;
+}
+
+.gallery-track{
     display:flex;
-    overflow-x:auto;
-    gap:10px;
-    padding-bottom:10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    width:100%;
+    height:100%;
+    transition:transform 0.4s ease;
 }
-.gallery img{
-    flex-shrink:0;
-    width:180px;
-    height:180px;
+
+.gallery-track img{
+    width:100%;
+    height:320px;
     object-fit:cover;
-    border-radius:12px;
-    scroll-snap-align:start;
-    transition: transform 0.3s;
+    flex-shrink:0;
 }
+
 .gallery img:hover{
     transform:scale(1.05);
     cursor:pointer;
 }
+
+
 
 /* PRODUCT INFO */
 .card h3{
@@ -262,11 +269,12 @@ footer{
 <!-- WATCH 1 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="tommie watch.jpg">
-        <!-- Extra images example -->
         <img src="tommie watch.jpg">
         <img src="tommie watch.jpg">
     </div>
+</div>
     <h3>Tommy Hilfiger – Men's Casual Watch</h3>
     <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
     <p class="desc">✔ Water Resistant (3 ATM)<br>✔ Quartz Movement<br>✔ Casual & Formal Use</p>
@@ -277,9 +285,12 @@ footer{
 <!-- WATCH 2 -->
 <div class="card">
     <div class="gallery">
-        <img src="Casual man watch.jpeg"><!--
-        <img src="Casual man watch 2.jpeg"> -->
+    <div class="gallery-track">
+        <img src="Casual man watch.jpeg">
+       <!-- <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>Men's Stylish Casual Watch</h3>
     <p class="desc">Modern casual watch with clean design, perfect for daily wear.</p>
     <div class="price">PKR 1,399</div>
@@ -289,9 +300,12 @@ footer{
 <!-- WATCH 3 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="ROLEX WHITE GOLD (2).jpg">
-       <!-- <img src="ROLEX WHITE GOLD 2.jpg"> -->
+       <!-- <img src="image2.jpg">
+        <img src="image3.jpg">-->
     </div>
+</div>
     <h3>Rolex – White & Gold Edition</h3>
     <p class="desc">
         Luxurious white and gold Rolex watch combining style and timeless elegance. 
@@ -304,8 +318,12 @@ footer{
 <!-- WATCH 4 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="ROLEX WHITE.jpg">
+       <!-- <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>Rolex – White Edition</h3>
     <p class="desc">
         Sleek white Rolex watch designed for elegance and comfort. 
@@ -318,9 +336,12 @@ footer{
 <!-- WATCH 5 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="ALFAJR BLACK.jpg">
-     <!--    <img src="ALFAJR BLACK 2.jpg"> -->
+       <!-- <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>ALFAJR – Black Edition</h3>
     <p class="desc">
         Bold black ALFAJR watch crafted for modern elegance. 
@@ -333,9 +354,12 @@ footer{
 <!-- WATCH 6 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="ALFJR GOLD.jpg">
-     <!--   <img src="ALFJR GOLD 2.jpg"> -->
+       <!-- <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>ALFAJR – Gold Edition</h3>
     <p class="desc">
         Stunning golden ALFAJR watch designed to exude luxury and elegance. 
@@ -348,8 +372,12 @@ footer{
 <!-- WATCH 7 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="ALFAJR WHITE GOLD.jpg">
+     <!--   <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>ALFAJR – White & Gold Edition</h3>
     <p class="desc">
         Elegant white and gold ALFAJR watch blending sophistication with luxury. 
@@ -362,8 +390,12 @@ footer{
 <!-- WATCH 8 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="Bravo.jpg">
+      <!--  <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>Bravo – Black Gold Edition</h3>
     <p class="desc">
         Elegant white and gold Bravo blending sophistication with luxury. 
@@ -376,8 +408,12 @@ footer{
 <!-- WATCH 9 -->
 <div class="card">
     <div class="gallery">
+    <div class="gallery-track">
         <img src="Gold Power.jpg">
+      <!--  <img src="image2.jpg">
+        <img src="image3.jpg"> -->
     </div>
+</div>
     <h3>GoldPower– Gold Edition</h3>
     <p class="desc">
         Elegant GoldPower and gold blending sophistication with luxury. 
@@ -401,7 +437,7 @@ footer{
 <section class="contact" id="contact">
 <h2>Contact Us</h2>
 <p>📞 0300-1007459</p>
-<p>📧 silkpro.official@gmail.com</p>
+<p>📧 silkpro.officail@gmail.com</p>
 </section>
 
 <!-- FOOTER -->
@@ -419,5 +455,3 @@ function toggleMenu(){document.getElementById("navMenu").classList.toggle("activ
 
 </body>
 </html>
-
-
