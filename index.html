@@ -62,9 +62,8 @@ nav a:hover{color:#ff6600;}
 }
 .animated-text span{
     display:block;
-    animation: slideText 8s ease-in-out infinite; /* thoda slow kardo */
+    animation: slideText 8s ease-in-out infinite;
 }
-
 .animated-text span:nth-child(2){animation-delay:3s;}
 .animated-text span:nth-child(3){animation-delay:6s;}
 
@@ -109,20 +108,30 @@ nav a:hover{color:#ff6600;}
     border-radius:16px;
     box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
-/* IMAGE GALLERY */
+
+/* IMAGE SLIDER */
 .gallery{
     display:flex;
-    gap:12px;
     overflow-x:auto;
+    gap:10px;
     padding-bottom:10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 .gallery img{
-    max-width:180px;
+    flex-shrink:0;
+    width:180px;
     height:180px;
     object-fit:cover;
     border-radius:12px;
-    flex-shrink:0;
+    scroll-snap-align:start;
+    transition: transform 0.3s;
 }
+.gallery img:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+
 /* PRODUCT INFO */
 .card h3{
     margin:15px 0 8px;
@@ -146,6 +155,7 @@ nav a:hover{color:#ff6600;}
     border-radius:8px;
     font-weight:600;
 }
+
 /* ABOUT & CONTACT */
 .about,.contact{
     padding:70px 40px;
@@ -163,6 +173,7 @@ nav a:hover{color:#ff6600;}
     line-height:1.9;
     font-size:17px;
 }
+
 /* FOOTER */
 footer{
     background:#222;
@@ -172,8 +183,9 @@ footer{
 }
 @media(max-width:768px){
     .hero h2{font-size:30px;}
-    .gallery img{max-width:220px;height:220px;}
+    .gallery img{width:220px;height:220px;}
 }
+
 /* MOBILE NAV FIX */
 @media(max-width:768px){
     header{
@@ -185,6 +197,7 @@ footer{
     nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;}
     nav a{font-size:15px;font-weight:600;}
 }
+
 /* HAMBURGER MENU */
 .menu-icon{
     display:none;
@@ -198,6 +211,7 @@ footer{
     .menu-icon{display:block;}
     nav.active{display:flex;}
 }
+
 /* WHATSAPP FLOATING BUTTON */
 .whatsapp-float{
     position:fixed;
@@ -249,6 +263,9 @@ footer{
 <div class="card">
     <div class="gallery">
         <img src="tommie watch.jpg">
+        <!-- Extra images example -->
+        <img src="tommie watch.jpg">
+        <img src="tommie watch.jpg">
     </div>
     <h3>Tommy Hilfiger – Men's Casual Watch</h3>
     <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
@@ -260,7 +277,8 @@ footer{
 <!-- WATCH 2 -->
 <div class="card">
     <div class="gallery">
-        <img src="Casual man watch.jpeg">
+        <img src="Casual man watch.jpeg"><!--
+        <img src="Casual man watch 2.jpeg"> -->
     </div>
     <h3>Men's Stylish Casual Watch</h3>
     <p class="desc">Modern casual watch with clean design, perfect for daily wear.</p>
@@ -268,11 +286,11 @@ footer{
     <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
 </div>
 
-</div>
-    <!-- WATCH 1 -->
+<!-- WATCH 3 -->
 <div class="card">
     <div class="gallery">
-        <img src="ROLEX WHITE GOLD (2).jpg" alt="Rolex White Gold Watch">
+        <img src="ROLEX WHITE GOLD (2).jpg">
+       <!-- <img src="ROLEX WHITE GOLD 2.jpg"> -->
     </div>
     <h3>Rolex – White & Gold Edition</h3>
     <p class="desc">
@@ -280,13 +298,13 @@ footer{
         Perfect for statement fashion and gifting.
     </p>
     <div class="price">PKR 16,500</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Rolex%20Golden%20Watch" target="_blank">Order Now</a>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
 </div>
 
-<!-- WATCH 2 -->
+<!-- WATCH 4 -->
 <div class="card">
     <div class="gallery">
-        <img src="ROLEX WHITE.jpg" alt="Rolex White Watch">
+        <img src="ROLEX WHITE.jpg">
     </div>
     <h3>Rolex – White Edition</h3>
     <p class="desc">
@@ -294,13 +312,14 @@ footer{
         Ideal for both casual and formal occasions.
     </p>
     <div class="price">PKR 15,500</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Rolex%20White%20Watch" target="_blank">Order Now</a>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
 </div>
 
-<!-- WATCH 4 -->
+<!-- WATCH 5 -->
 <div class="card">
     <div class="gallery">
-        <img src="ALFAJR BLACK.jpg" alt="ALFAJR Black Watch">
+        <img src="ALFAJR BLACK.jpg">
+     <!--    <img src="ALFAJR BLACK 2.jpg"> -->
     </div>
     <h3>ALFAJR – Black Edition</h3>
     <p class="desc">
@@ -308,13 +327,14 @@ footer{
         Perfect for daily wear and sophisticated styling.
     </p>
     <div class="price">PKR 16,500</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20ALFAJAR%20Black%20Watch" target="_blank">Order Now</a>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
 </div>
 
-<!-- WATCH 5 -->
+<!-- WATCH 6 -->
 <div class="card">
     <div class="gallery">
-        <img src="ALFJR GOLD.jpg" alt="ALFAJR Gold Watch">
+        <img src="ALFJR GOLD.jpg">
+     <!--   <img src="ALFJR GOLD 2.jpg"> -->
     </div>
     <h3>ALFAJR – Gold Edition</h3>
     <p class="desc">
@@ -322,13 +342,13 @@ footer{
         Ideal for gifting or making a style statement.
     </p>
     <div class="price">PKR 17,000</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20ALFAJAR%20Gold%20Watch" target="_blank">Order Now</a>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
 </div>
 
-<!-- WATCH 6 -->
+<!-- WATCH 7 -->
 <div class="card">
     <div class="gallery">
-        <img src="ALFAJR WHITE GOLD.jpg" alt="ALFAJR White Gold Watch">
+        <img src="ALFAJR WHITE GOLD.jpg">
     </div>
     <h3>ALFAJR – White & Gold Edition</h3>
     <p class="desc">
@@ -336,7 +356,37 @@ footer{
         Perfect for classy occasions and premium gifting.
     </p>
     <div class="price">PKR 17,000</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20ALFAJAR%20White%20%26%20Gold%20Watch" target="_blank">Order Now</a>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
+</div>
+
+<!-- WATCH 8 -->
+<div class="card">
+    <div class="gallery">
+        <img src="Bravo.jpg">
+    </div>
+    <h3>Bravo – Black Gold Edition</h3>
+    <p class="desc">
+        Elegant white and gold Bravo blending sophistication with luxury. 
+        Perfect for classy occasions and premium gifting.
+    </p>
+    <div class="price">PKR 2,000</div>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
+</div>
+
+<!-- WATCH 9 -->
+<div class="card">
+    <div class="gallery">
+        <img src="Gold Power.jpg">
+    </div>
+    <h3>GoldPower– Gold Edition</h3>
+    <p class="desc">
+        Elegant GoldPower and gold blending sophistication with luxury. 
+        Perfect for classy occasions and premium gifting.
+    </p>
+    <div class="price">PKR 2,000</div>
+    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
+</div>
+
 </div>
 </section>
 
@@ -369,5 +419,3 @@ function toggleMenu(){document.getElementById("navMenu").classList.toggle("activ
 
 </body>
 </html>
-
-
