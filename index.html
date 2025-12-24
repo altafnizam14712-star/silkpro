@@ -109,35 +109,65 @@ nav a:hover{color:#ff6600;}
     box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* SLIDER CORE */
-.gallery{
-  width:100%;
-  height:320
-  overflow:hidden;
-  position:relative;
-  border-radius:14px;
+/* SLIDER */
+.gallery {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 14px;
 }
 
-.gallery-track{
-  display:flex;
-  width:100%;
-  height:100%;
-  transition:transform 0.4s ease;
+.gallery img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-.gallery-track img{
-  width: 100px;
-  height:320px;
-  object-fit:cover
-  flex-shrink:0;
+.gallery img.active {
+    opacity: 1;
 }
 
-
-.gallery img:hover{
-    transform:scale(1.05);
-    cursor:pointer;
+/* ARROWS */
+.gallery .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
 }
+.gallery .arrow.left { left: 10px; }
+.gallery .arrow.right { right: 10px; }
 
+/* DOTS */
+.gallery .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.gallery .dots span {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.gallery .dots span.active {
+    background: #ff6600;
+}
 /* ARROWS */
 .slider-arrow{
   position:absolute;
@@ -456,6 +486,25 @@ footer{
 </div>
 
 </div>
+
+<!-- Maxon Earbuds -->
+<div class="card">
+    <div class="gallery">
+        <div class="gallery-track">
+            <img src="earbuds 1.jpg" class="active">
+            <img src="earbuds box.jpg">
+            
+        </div>
+        <div class="slider-arrow left">&#10094;</div>
+        <div class="slider-arrow right">&#10095;</div>
+        <div class="slider-dots"></div>
+    </div>
+    <h3>Maxon Earbuds</h3>
+    <p class="desc">Enjoy crystal-clear sound and deep bass with Maxon Earbuds. Lightweight, comfortable, perfect for music, workouts, or travel.</p>
+    <p class="desc">✔ Premium Quality<br>✔ Lightweight & Comfortable<br>✔ Long Battery Life</p>
+    <div class="price">PKR 2,500</div>
+    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Maxon%20Earbuds" target="_blank">Order Now</a>
+</div>
 </section>
 <!-- ABOUT -->
 <section class="about" id="about">
@@ -468,7 +517,7 @@ footer{
 <section class="contact" id="contact">
 <h2>Contact Us</h2>
 <p>📞 0300-1007459</p>
-<p>📧 silkpro.officail@gmail.com</p>
+<p>📧 silkpro.official@gmail.com</p>
 </section>
 
 <!-- FOOTER -->
@@ -480,22 +529,35 @@ footer{
 <script>
 function toggleMenu(){document.getElementById("navMenu").classList.toggle("active");}
 
-document.querySelectorAll('.gallery').forEach((gallery)=>{
+document.querySelectorAll('.gallery').forEach(gallery => {
     const images = gallery.querySelectorAll('img');
-    const left = gallery.querySelector('.left');
-    const right = gallery.querySelector('.right');
-    const dotsContainer = gallery.querySelector('.slider-dots');
-    let current = 0;
+    const leftArrow = document.createElement('div');
+    const rightArrow = document.createElement('div');
+    const dotsContainer = document.createElement('div');
 
-    // create dots
-    images.forEach((_,i)=>{
+    leftArrow.className = 'arrow left';
+    leftArrow.innerHTML = '&#10094;';
+    rightArrow.className = 'arrow right';
+    rightArrow.innerHTML = '&#10095;';
+    dotsContainer.className = 'dots';
+
+    gallery.appendChild(leftArrow);
+    gallery.appendChild(rightArrow);
+    gallery.appendChild(dotsContainer);
+
+    let current = 0;
+    images[current].classList.add('active');
+
+    images.forEach((_, i) => {
         const dot = document.createElement('span');
-        if(i===0) dot.classList.add('active');
+        if (i === 0) dot.classList.add('active');
         dotsContainer.appendChild(dot);
-        dot.addEventListener('click',()=>{ goToSlide(i); });
+        dot.addEventListener('click', () => {
+            goToSlide(i);
+        });
     });
 
-    function goToSlide(index){
+    function goToSlide(index) {
         images[current].classList.remove('active');
         dotsContainer.children[current].classList.remove('active');
         current = index;
@@ -503,23 +565,22 @@ document.querySelectorAll('.gallery').forEach((gallery)=>{
         dotsContainer.children[current].classList.add('active');
     }
 
-    left.addEventListener('click',()=>{
-        let next = current-1 < 0 ? images.length-1 : current-1;
+    leftArrow.addEventListener('click', () => {
+        let next = current - 1 < 0 ? images.length - 1 : current - 1;
         goToSlide(next);
     });
 
-    right.addEventListener('click',()=>{
-        let next = (current+1)%images.length;
+    rightArrow.addEventListener('click', () => {
+        let next = (current + 1) % images.length;
         goToSlide(next);
     });
 
-    // Auto-slide
-    setInterval(()=>{
-        let next = (current+1)%images.length;
+    // Auto Slide
+    setInterval(() => {
+        let next = (current + 1) % images.length;
         goToSlide(next);
-    },3000);
+    }, 4000);
 });
-
 </script>
 
 <a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20place%20an%20order" class="whatsapp-float" target="_blank">
