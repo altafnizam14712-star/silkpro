@@ -589,7 +589,633 @@ Upgrade your daily sound experience with crystal-clear audio, deep bass, aur com
 </div>
 
 <!-- WATCH 12 -->
-<div class="card">
+<div class="card"><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SilkPro | Premium Watches Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== RESET & BASE ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:#f6f7f9;
+    color:#333;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ===== HEADER ===== */
+header{
+    background:#fff;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+header h1{
+    color:#ff6600;
+    font-size:28px;
+}
+nav a{
+    margin:0 15px;
+    font-weight:500;
+}
+nav a:hover{color:#ff6600;}
+
+/* ===== HAMBURGER MENU ===== */
+.menu-icon{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+}
+@media(max-width:768px){
+    header{flex-direction:row; justify-content:space-between; padding:15px 20px;}
+    nav{position:absolute; top:70px; left:0; width:100%; background:#fff; display:none; flex-direction:column; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+    nav a{padding:15px; border-bottom:1px solid #eee; font-size:16px; font-weight:600;}
+    nav.active{display:flex;}
+    .menu-icon{display:block;}
+}
+
+/* ===== HERO ===== */
+.hero{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('css image.jpg') no-repeat center center;
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+    color:#fff;
+}
+.hero h1{
+    font-size:42px;
+    font-weight:700;
+}
+.hero p{
+    font-size:18px;
+    margin:15px 0;
+}
+.hero-btn{
+    display:inline-block;
+    background:#fff;
+    color:#000;
+    padding:12px 26px;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+}
+.hero-btn:hover{
+    transform:scale(1.05);
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+    padding:70px 40px;
+    text-align:center;
+}
+.products h2{
+    font-size:36px;
+    margin-bottom:40px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    transition:0.4s;
+    position:relative;
+}
+.product-card:hover{
+    transform:translateY(-8px);
+}
+.product-img{
+    overflow:hidden;
+}
+.product-card img{
+    width:100%;
+    transition:0.4s;
+}
+.product-card:hover img{
+    transform:scale(1.05);
+}
+.product-info{
+    padding:18px;
+    text-align:center;
+}
+.product-info h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+.desc{
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:10px;
+}
+.price{
+    margin:12px 0;
+    font-weight:700;
+    font-size:18px;
+    color:#ff6600;
+}
+.old-price{
+    text-decoration:line-through;
+    color:#888;
+    margin-right:8px;
+    font-size:15px;
+}
+.new-price{
+    color:#e63946;
+    font-weight:bold;
+    font-size:20px;
+}
+.buy-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 24px;
+    background:#000;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:14px;
+}
+.badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#000;
+    color:#fff;
+    padding:6px 14px;
+    font-size:12px;
+    border-radius:20px;
+    z-index:10;
+}
+
+/* ===== GALLERY / SLIDER ===== */
+.gallery{
+    position:relative;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    border-radius:14px;
+}
+.gallery img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+.gallery img.active{
+    opacity:1;
+}
+.slider-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    font-size:20px;
+    padding:10px 14px;
+    border-radius:50%;
+    cursor:pointer;
+    user-select:none;
+    z-index:5;
+}
+.slider-arrow.left{left:10px;}
+.slider-arrow.right{right:10px;}
+.slider-dots{
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    z-index:5;
+}
+.slider-dots span{
+    width:10px;
+    height:10px;
+    background:#ccc;
+    border-radius:50%;
+    cursor:pointer;
+}
+.slider-dots span.active{
+    background:#ff6600;
+}
+
+/* ===== ABOUT / CONTACT ===== */
+.about,.contact{
+    padding:70px 40px;
+    text-align:center;
+}
+.about{background:#fff;}
+.contact{background:#f1f1f1;}
+.about h2,.contact h2{font-size:36px;margin-bottom:20px;}
+.about p,.contact p{max-width:800px;margin:15px auto;font-size:17px;line-height:1.9;}
+
+/* ===== TRUST / FOOTER ===== */
+.trust-section{background:#fff;text-align:center;padding:70px 20px;}
+.trust-section h2{margin-bottom:30px;}
+.trust-section div{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
+.trust-section div div{max-width:180px;}
+footer{
+    background:#222;
+    color:#fff;
+    padding:25px;
+    text-align:center;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    font-size:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    z-index:999;
+}
+.whatsapp-float:hover{background:#1ebe5d;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .hero h1{font-size:30px;}
+    .gallery img{height:220px;}
+    .grid{gap:20px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>SilkPro</h1>
+    <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav id="navMenu">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#products" onclick="toggleMenu()">Products</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <h1>Premium Watches & Accessories</h1>
+    <p>Style • Trust • Best Price in Pakistan</p>
+    <a href="https://wa.me/923001007459" class="hero-btn">Order on WhatsApp</a>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+<h2>Featured Watches</h2>
+<div class="grid">
+
+<!-- WATCH 1 -->
+<div class="product-card">
+  <div class="badge">Best Seller</div>
+  <div class="product-img">
+    <div class="gallery">
+      <img src="tommie watch.jpg" class="active">
+      <img src="tommie watch.jpg">
+      <img src="tommie watch.jpg">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Tommy Hilfiger – Men's Casual Watch</h3>
+    <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
+    <p class="desc">✔ Water Resistant (3 ATM)<br>✔ Quartz Movement<br>✔ Casual & Formal Use</p>
+    <p class="price"><span class="old-price">Rs 14000</span> <span class="new-price">Rs 12000</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch" target="_blank">Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- WATCH 2 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="Casual man watch.jpeg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Men's Stylish Casual Watch</h3>
+    <p class="desc">Modern casual watch with clean design, perfect for daily wear.</p>
+    <p class="price"><span class="old-price">Rs 1700</span> <span class="new-price">Rs 1399</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- WATCH 3 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="ROLEX WHITE GOLD (2).jpg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Rolex – White & Gold Edition</h3>
+    <p class="desc">Luxurious white and gold Rolex watch combining style and timeless elegance. 
+        Perfect for statement fashion and gifting.</p>
+    <p class="price"><span class="old-price">Rs 16500</span> <span class="new-price">Rs 16000</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- WATCH 4 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="Gold Power.jpg" class="active">
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>GoldPower– Gold Edition</h3>
+    <p class="desc">Modern casual watch with clean design, perfect for daily wear.</p>
+    <p class="price"><span class="old-price">Rs 3000</span> <span class="new-price">Rs 2499</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- WATCH 5 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="ALFAJR BLACK.jpg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>ALFAJR – Black Edition</h3>
+    <p class="desc">Bold black ALFAJR watch crafted for modern elegance. 
+        Perfect for daily wear and sophisticated styling.</p>
+    <p class="price"><span class="old-price">Rs 17500</span> <span class="new-price">Rs 16499</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- WATCH 6 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="ALFJR GOLD.jpg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>ALFAJR – Gold Edition</h3>
+    <p class="desc">Stunning golden ALFAJR watch designed to exude luxury and elegance. 
+        Ideal for gifting or making a style statement.</p>
+    <p class="price"><span class="old-price">Rs 17000</span> <span class="new-price">Rs 15999</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- WATCH 7 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="ALFAJR WHITE GOLD.jpg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>ALFAJR – White & Gold Edition</h3>
+    <p class="desc"> Elegant white and gold ALFAJR watch blending sophistication with luxury. 
+        Perfect for classy occasions and premium gifting.
+    </p></p>
+    <p class="price"><span class="old-price">Rs 18000</span> <span class="new-price">Rs 16999</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- WATCH 8 -->
+<div class="product-card">
+  <div class="product-img">
+    <div class="gallery">
+      <img src="Bravo.jpg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Bravo – Black Gold Edition</h3>
+    <p class="desc"> Elegant white and gold Bravo blending sophistication with luxury. 
+        Perfect for classy occasions and premium gifting.</p>
+    <p class="price"><span class="old-price">Rs 3000</span> <span class="new-price">Rs 2499</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
+  </div>
+</div>
+
+<!-- Watch 9 -->
+<div class="product-card">
+  <div class="badge">Best Seller</div>
+  <div class="product-img">
+    <div class="gallery">
+      <img src="ROLEX WHITE.jpg" class="active">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Rolex – White Edition</h3>
+    <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
+    <p class="desc">Sleek white Rolex watch designed for elegance and comfort. 
+        Ideal for both casual and formal occasions.</p>
+    <p class="price"><span class="old-price">Rs 16000</span> <span class="new-price">Rs 15000</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch" target="_blank">Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- WATCH 1 -->
+<div class="product-card">
+  <div class="badge">Best Seller</div>
+  <div class="product-img">
+    <div class="gallery">
+      <img src="earbuds 1.jpeg" class="active">
+      <img src="earbuds box.jpg">
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Maxon </h3>
+    <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
+    <p class="desc">✔ Water Resistant (3 ATM)<br>✔ Quartz Movement<br>✔ Casual & Formal Use</p>
+    <p class="price"><span class="old-price">Rs 14000</span> <span class="new-price">Rs 12000</span></p>
+    <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch" target="_blank">Order on WhatsApp</a>
+  </div>
+</div>
+
+<!-- earbuds 1 -->
+<div class="product-card">
+  <div class="badge">Hot Deal</div>
+
+  <div class="product-img">
+    <div class="gallery">
+      <img src="Redinton1.jpg" class="active">
+      <img src="Redinton2.jpg">
+      <img src="Redington3.jpg">
+
+      <div class="slider-arrow left">&#10094;</div>
+      <div class="slider-arrow right">&#10095;</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h3>Wireless Bluetooth Earbuds</h3>
+    <p class="desc">Deep bass • Touch control • Long battery life</p>
+
+    <p class="price">
+      <span class="old-price">Rs 1999</span>
+      <span class="new-price">Rs 1599</span>
+    </p>
+
+    <a class="buy-btn"
+       href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Wireless%20Earbuds"
+       target="_blank">
+       Order on WhatsApp
+    </a>
+  </div>
+</div>
+<!-- ADD REST OF WATCHES SAME WAY ... -->
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<h2>About SilkPro</h2>
+<p><strong>SilkPro</strong> is a premium online store founded and managed by <strong>Altaf Nizam</strong>. We focus on quality, style, and customer trust.</p>
+<p>We provide stylish products with Cash on Delivery service all over Pakistan. Customer satisfaction is our top priority.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2>Contact Us</h2>
+<p>📞 0300-1007459</p>
+<p>📧 silkpro.officail@gmail.com</p>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section">
+<h2>Why Choose SilkPro?</h2>
+<div>
+  <div>
+    <h3>✔ Quality Checked</h3>
+    <p>Har product dispatch se pehle check hota hai</p>
+  </div>
+  <div>
+    <h3>🚚 Fast Delivery</h3>
+    <p>Pakistan wide reliable delivery</p>
+  </div>
+  <div>
+    <h3>💰 Best Price</h3>
+    <p>Premium products at balanced prices</p>
+  </div>
+  <div>
+    <h3>📞 Support</h3>
+    <p>WhatsApp support available</p>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>© 2025 SilkPro</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/923001007459" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+function toggleMenu(){document.getElementById("navMenu").classList.toggle("active");}
+
+/* GALLERY SLIDER */
+document.querySelectorAll('.gallery').forEach(gallery=>{
+    const images=gallery.querySelectorAll('img');
+    const left=gallery.querySelector('.slider-arrow.left');
+    const right=gallery.querySelector('.slider-arrow.right');
+    const dots=gallery.querySelector('.slider-dots');
+    let current=0;
+
+    images.forEach((_,i)=>{
+        const dot=document.createElement('span');
+        if(i===0) dot.classList.add('active');
+        dots.appendChild(dot);
+        dot.addEventListener('click',()=>{goToSlide(i)});
+    });
+
+    function goToSlide(index){
+        images[current].classList.remove('active');
+        dots.children[current].classList.remove('active');
+        current=index;
+        images[current].classList.add('active');
+        dots.children[current].classList.add('active');
+    }
+
+    left.addEventListener('click',()=>{goToSlide(current-1<0?images.length-1:current-1)});
+    right.addEventListener('click',()=>{goToSlide((current+1)%images.length)});
+
+    setInterval(()=>{goToSlide((current+1)%images.length)},4000);
+});
+</script>
+
+</body>
+</html>
     <div class="gallery">
         <div class="gallery-track">
             <img src="Gold power black1.jpg" class="active">
@@ -697,6 +1323,7 @@ document.querySelectorAll('.gallery').forEach(gallery => {
 
 </body>
 </html>
+
 
 
 
