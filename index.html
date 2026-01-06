@@ -7,598 +7,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-body{
-    background:#f9f9f9;
-    color:#333;
-}
-a{text-decoration:none;color:inherit;}
-
-/* HEADER */
-header{
-    background:#fff;
-    padding:20px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-header h1{
-    color:#ff6600;
-    font-size:28px;
-}
-nav a{
-    margin:0 15px;
-    font-weight:500;
-}
-nav a:hover{color:#ff6600;}
-
-/* HERO */
-.hero{
-    height:500px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:#fff;
-    background: linear-gradient(135deg, #ff6600, #ffcc00, #ff0066, #6600ff);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
-}
-@keyframes gradientBG{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-.animated-text span{
-    display:block;
-    animation: slideText 8s ease-in-out infinite;
-}
-.animated-text span:nth-child(2){animation-delay:3s;}
-.animated-text span:nth-child(3){animation-delay:6s;}
-
-@keyframes slideText{
-    0% { transform: translateY(100%); opacity:0; }
-    10% { transform: translateY(0%); opacity:1; }
-    30% { transform: translateY(0%); opacity:1; }
-    40% { transform: translateY(-100%); opacity:0; }
-    100% { transform: translateY(-100%); opacity:0; }
-}
-.hero button{
-    margin-top:20px;
-    padding:15px 35px;
-    font-size:18px;
-    background:#25D366;
-    border:none;
-    color:#fff;
-    border-radius:8px;
-    cursor:pointer;
-    box-shadow:0 6px 15px rgba(0,0,0,0.2);
-    transition:all 0.3s ease;
-}
-.hero button:hover{background:#1ebe5d; transform:translateY(-3px);}
-
-/* PRODUCTS */
-.products{
-    padding:70px 40px;
-    text-align:center;
-}
-.products h2{
-    font-size:36px;
-    margin-bottom:40px;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-.card{
-    background:#fff;
-    padding:20px;
-    border-radius:16px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-/* SLIDER */
-.gallery {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    border-radius: 14px;
-}
-
-.gallery img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.gallery img.active {
-    opacity: 1;
-}
-
-/* ARROWS */
-.gallery .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    font-size: 20px;
-    padding: 8px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 5;
-}
-.gallery .arrow.left { left: 10px; }
-.gallery .arrow.right { right: 10px; }
-
-/* DOTS */
-.gallery .dots {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-}
-.gallery .dots span {
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-}
-.gallery .dots span.active {
-    background: #ff6600;
-}
-/* ARROWS */
-.slider-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
-  color:#fff;
-  font-size:20px;
-  padding:10px 14px;
-  border-radius:50%;
-  cursor:pointer;
-  user-select:none;
-}
-
-.slider-arrow.left{left:10px;}
-.slider-arrow.right{right:10px;}
-
-@media(max-width:768px){
-  .gallery{height:220x;}
-  .gallery-track img{height:260px;}
-}
-
-
-/* PRODUCT INFO */
-.card h3{
-    margin:15px 0 8px;
-}
-.desc{
-    font-size:14px;
-    line-height:1.6;
-    margin-bottom:10px;
-}
-.price{
-    color:#ff6600;
-    font-weight:700;
-    font-size:18px;
-    margin-bottom:15px;
-}
-.order-btn{
-    display:inline-block;
-    padding:12px 30px;
-    background:#25D366;
-    color:#fff;
-    border-radius:8px;
-    font-weight:600;
-}
-
-/* ABOUT & CONTACT */
-.about,.contact{
-    padding:70px 40px;
-    text-align:center;
-}
-.about{background:#fff;}
-.contact{background:#f1f1f1;}
-.about h2{
-    font-size:36px;
-    margin-bottom:20px;
-}
-.about p{
-    max-width:800px;
-    margin:15px auto;
-    line-height:1.9;
-    font-size:17px;
-}
-
-/* FOOTER */
-footer{
-    background:#222;
-    color:#fff;
-    padding:25px;
-    text-align:center;
-}
-@media(max-width:768px){
-    .hero h2{font-size:30px;}
-    .gallery img{width:220px;height:220px;}
-}
-
-/* MOBILE NAV FIX */
-@media(max-width:768px){
-    header{
-        flex-direction:column;
-        padding:15px 20px;
-        text-align:center;
-    }
-    header h1{font-size:26px;margin-bottom:10px;}
-    nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;}
-    nav a{font-size:15px;font-weight:600;}
-}
-
-/* HAMBURGER MENU */
-.menu-icon{
-    display:none;
-    font-size:24px;
-    cursor:pointer;
-}
-@media(max-width:768px){
-    header{flex-direction:row; justify-content:space-between; align-items:center; padding:15px 20px;}
-    nav{position:absolute; top:70px; left:0; width:100%; background:#fff; display:none; flex-direction:column; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
-    nav a{padding:15px; border-bottom:1px solid #eee; font-size:16px; font-weight:600;}
-    .menu-icon{display:block;}
-    nav.active{display:flex;}
-}
-
-/* WHATSAPP FLOATING BUTTON */
-.whatsapp-float{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:#fff;
-    padding:15px;
-    border-radius:50%;
-    font-size:26px;
-    box-shadow:0 6px 15px rgba(0,0,0,0.2);
-    z-index:100;
-}
-.whatsapp-float:hover{background:#1ebe5d;}
-
-.price {
-  font-size: 18px;
-  margin: 8px 0;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  margin-right: 8px;
-  font-size: 15px;
-}
-
-.new-price {
-  color: #e63946;
-  font-weight: bold;
-  font-size: 20px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>SilkPro</h1>
-    <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-    <nav id="navMenu">
-        <a href="#home" onclick="toggleMenu()">Home</a>
-        <a href="#products" onclick="toggleMenu()">Products</a>
-        <a href="#about" onclick="toggleMenu()">About</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </nav>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-    <div>
-        <h2 class="animated-text">
-            <span>Premium Watches</span>
-            <span>Stylish & Elegant</span>
-            <span>Perfect for You</span>
-        </h2>
-        <button onclick="location.href='#products'">Shop Now</button>
-    </div>
-</section>
-
-<section class="products" id="products">
-<h2>Featured Watches</h2>
-<div class="grid">
-
-<!-- WATCH 1 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="tommie watch.jpg" class="active">
-            <img src="tommie watch.jpg">
-            <img src="tommie watch.jpg">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Tommy Hilfiger – Men's Casual Watch</h3>
-    <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
-    <p class="desc">✔ Water Resistant (3 ATM)<br>✔ Quartz Movement<br>✔ Casual & Formal Use</p>
-    <div class="price">
-  <span class="old-price">Rs 14000</span>
-  <span class="new-price">Rs 12000</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 2 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="Casual man watch.jpeg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Men's Stylish Casual Watch</h3>
-    <p class="desc">Modern casual watch with clean design, perfect for daily wear.</p>
-    <div class="price">
-  <span class="old-price">Rs 1700</span>
-  <span class="new-price">Rs 1399</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 3 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="ROLEX WHITE GOLD (2).jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Rolex – White & Gold Edition</h3>
-    <p class="desc">
-        Luxurious white and gold Rolex watch combining style and timeless elegance. 
-        Perfect for statement fashion and gifting.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 16500</span>
-  <span class="new-price">Rs 16000</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 4 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="ROLEX WHITE.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Rolex – White Edition</h3>
-    <p class="desc">
-        Sleek white Rolex watch designed for elegance and comfort. 
-        Ideal for both casual and formal occasions.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 16000</span>
-  <span class="new-price">Rs 15000</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 5 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="ALFAJR BLACK.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>ALFAJR – Black Edition</h3>
-    <p class="desc">
-        Bold black ALFAJR watch crafted for modern elegance. 
-        Perfect for daily wear and sophisticated styling.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 17500</span>
-  <span class="new-price">Rs 16499</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 6 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="ALFJR GOLD.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>ALFAJR – Gold Edition</h3>
-    <p class="desc">
-        Stunning golden ALFAJR watch designed to exude luxury and elegance. 
-        Ideal for gifting or making a style statement.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 17000</span>
-  <span class="new-price">Rs 15999</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 7 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="ALFAJR WHITE GOLD.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>ALFAJR – White & Gold Edition</h3>
-    <p class="desc">
-        Elegant white and gold ALFAJR watch blending sophistication with luxury. 
-        Perfect for classy occasions and premium gifting.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 18000</span>
-  <span class="new-price">Rs 16999</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 8 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="Bravo.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Bravo – Black Gold Edition</h3>
-    <p class="desc">
-        Elegant white and gold Bravo blending sophistication with luxury. 
-        Perfect for classy occasions and premium gifting.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 3000</span>
-  <span class="new-price">Rs 2499</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 9 -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="Gold Power.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>GoldPower– Gold Edition</h3>
-    <p class="desc">
-        Elegant GoldPower and gold blending sophistication with luxury. 
-        Perfect for classy occasions and premium gifting.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 3000</span>
-  <span class="new-price">Rs 2499</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-</div>
-
-<!-- Maxon Earbuds -->
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="earbuds 1.jpg" class="active">
-            <img src="earbuds box.jpg">
-            
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Maxon Earbuds</h3>
-    <p class="desc">Enjoy crystal-clear sound and deep bass with Maxon Earbuds. Lightweight, comfortable, perfect for music, workouts, or travel.</p>
-    <p class="desc">✔ Premium Quality<br>✔ Lightweight & Comfortable<br>✔ Long Battery Life</p>
-    <div class="price">
-  <span class="old-price">Rs 3000</span>
-  <span class="new-price">Rs 2800</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Maxon%20Earbuds" target="_blank">Order Now</a>
-</div>
-
-<div class="card">
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="Redinton1.jpg" class="active">
-            <img src="Redinton2.jpg">
-            <img src="Redington3.jpg">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>Redington – Orriginal Earbuds </h3>
-    <p class="desc">🎧 Premium Wireless Earbuds
-Upgrade your daily sound experience with crystal-clear audio, deep bass, aur comfortable fit jo lamba time use ke liye perfect hai.
-✨ Features:
-✔ Clear HD Sound & Powerful Bass
-✔ Long-lasting Battery Backup
-✔ Comfortable & Lightweight Design
-✔ Touch Control & Fast Pairing
-✔ Music, Calls & Daily Use ke liye ideal
-📦 Limited Stock Available
-🚚 Cash on Delivery Available
-📍 Karachi se Dispatch
-⏱ Karachi: 1–2 din | Other cities: 3–4 din
-📩 Order ke liye Inbox ya WhatsApp karein
-💬 Serious buyers message karei</p>
-    <p class="desc">Redington Earbuds<br>
-    <div class="price">
-  <span class="old-price">Rs 2200</span>
-  <span class="new-price">Rs 1900</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch" target="_blank">Order Now</a>
-</div>
-
-<!-- WATCH 12 -->
-<div class="card"><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>SilkPro | Premium Watches Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 /* ===== RESET & BASE ===== */
 *{
@@ -642,59 +50,64 @@ nav a:hover{color:#ff6600;}
     cursor:pointer;
 }
 @media(max-width:768px){
-    header{flex-direction:row; justify-content:space-between; padding:15px 20px;}
-    nav{position:absolute; top:70px; left:0; width:100%; background:#fff; display:none; flex-direction:column; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
-    nav a{padding:15px; border-bottom:1px solid #eee; font-size:16px; font-weight:600;}
+    header{padding:15px 20px;}
+    nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#fff;
+        display:none;
+        flex-direction:column;
+        box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    nav a{
+        padding:15px;
+        border-bottom:1px solid #eee;
+        font-size:16px;
+        font-weight:600;
+    }
     nav.active{display:flex;}
     .menu-icon{display:block;}
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (FIXED) ===== */
 .hero{
-    min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('css image.jpg') no-repeat center center;
+    height: calc(100svh - 80px); /* ✅ mobile safe */
+    max-height: 700px;           /* ✅ content neeche dikhay */
+    background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('css image.jpg') no-repeat center;
     background-size: cover;
     display:flex;
-    flex-direction: column;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
     padding:0 20px;
     color:#fff;
 }
-.hero h1{
-    font-size:42px;
-    font-weight:700;
-}
-.hero p{
-    font-size:18px;
-    margin:15px 0;
-}
+.hero h1{font-size:42px;font-weight:700;}
+.hero p{font-size:18px;margin:15px 0;}
 .hero-btn{
-    display:inline-block;
     background:#fff;
     color:#000;
     padding:12px 26px;
     border-radius:30px;
     font-weight:600;
-    transition:0.3s;
+    transition:.3s;
 }
-.hero-btn:hover{
-    transform:scale(1.05);
-}
+.hero-btn:hover{transform:scale(1.05);}
 
 /* ===== PRODUCTS ===== */
 .products{
     padding:70px 40px;
     text-align:center;
 }
-.products h2{
-    font-size:36px;
-    margin-bottom:40px;
-}
+.products h2{font-size:36px;margin-bottom:40px;}
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
 }
 
@@ -703,63 +116,34 @@ nav a:hover{color:#ff6600;}
     background:#fff;
     border-radius:18px;
     overflow:hidden;
-    box-shadow:0 15px 35px rgba(0,0,0,0.12);
-    transition:0.4s;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+    transition:.4s;
     position:relative;
 }
-.product-card:hover{
-    transform:translateY(-8px);
-}
-.product-img{
-    overflow:hidden;
-}
+.product-card:hover{transform:translateY(-8px);}
+.product-img{overflow:hidden;}
 .product-card img{
     width:100%;
-    transition:0.4s;
+    display:block;
+    transition:.4s;
 }
-.product-card:hover img{
-    transform:scale(1.05);
-}
-.product-info{
-    padding:18px;
-    text-align:center;
-}
-.product-info h3{
-    font-size:18px;
-    margin-bottom:8px;
-}
-.desc{
-    font-size:14px;
-    line-height:1.6;
-    margin-bottom:10px;
-}
-.price{
-    margin:12px 0;
-    font-weight:700;
-    font-size:18px;
-    color:#ff6600;
-}
-.old-price{
-    text-decoration:line-through;
-    color:#888;
-    margin-right:8px;
-    font-size:15px;
-}
-.new-price{
-    color:#e63946;
-    font-weight:bold;
-    font-size:20px;
-}
+.product-card:hover img{transform:scale(1.05);}
+.product-info{padding:18px;text-align:center;}
+.product-info h3{font-size:18px;margin-bottom:8px;}
+.desc{font-size:14px;line-height:1.6;margin-bottom:10px;}
+.price{margin:12px 0;font-weight:700;font-size:18px;}
+.old-price{text-decoration:line-through;color:#888;margin-right:8px;}
+.new-price{color:#e63946;font-size:20px;}
 .buy-btn{
     display:inline-block;
-    margin-top:12px;
     padding:10px 24px;
     background:#000;
     color:#fff;
     border-radius:30px;
-    text-decoration:none;
     font-size:14px;
 }
+
+/* ===== BADGE ===== */
 .badge{
     position:absolute;
     top:15px;
@@ -772,7 +156,7 @@ nav a:hover{color:#ff6600;}
     z-index:10;
 }
 
-/* ===== GALLERY / SLIDER ===== */
+/* ===== SLIDER ===== */
 .gallery{
     position:relative;
     width:100%;
@@ -782,28 +166,24 @@ nav a:hover{color:#ff6600;}
 }
 .gallery img{
     position:absolute;
-    top:0;
-    left:0;
+    inset:0;
     width:100%;
-    height:320px;
+    height:100%;
     object-fit:cover;
     opacity:0;
-    transition:opacity 1s ease-in-out;
+    transition:opacity 1s ease;
 }
-.gallery img.active{
-    opacity:1;
-}
+.gallery img.active{opacity:1;}
 .slider-arrow{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,.5);
     color:#fff;
     font-size:20px;
     padding:10px 14px;
     border-radius:50%;
     cursor:pointer;
-    user-select:none;
     z-index:5;
 }
 .slider-arrow.left{left:10px;}
@@ -815,34 +195,16 @@ nav a:hover{color:#ff6600;}
     transform:translateX(-50%);
     display:flex;
     gap:8px;
-    z-index:5;
 }
 .slider-dots span{
     width:10px;
     height:10px;
     background:#ccc;
     border-radius:50%;
-    cursor:pointer;
 }
-.slider-dots span.active{
-    background:#ff6600;
-}
+.slider-dots span.active{background:#ff6600;}
 
-/* ===== ABOUT / CONTACT ===== */
-.about,.contact{
-    padding:70px 40px;
-    text-align:center;
-}
-.about{background:#fff;}
-.contact{background:#f1f1f1;}
-.about h2,.contact h2{font-size:36px;margin-bottom:20px;}
-.about p,.contact p{max-width:800px;margin:15px auto;font-size:17px;line-height:1.9;}
-
-/* ===== TRUST / FOOTER ===== */
-.trust-section{background:#fff;text-align:center;padding:70px 20px;}
-.trust-section h2{margin-bottom:30px;}
-.trust-section div{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
-.trust-section div div{max-width:180px;}
+/* ===== FOOTER ===== */
 footer{
     background:#222;
     color:#fff;
@@ -850,31 +212,27 @@ footer{
     text-align:center;
 }
 
-/* ===== WHATSAPP FLOAT ===== */
+/* ===== WHATSAPP ===== */
 .whatsapp-float{
     position:fixed;
     bottom:20px;
     right:20px;
-    background:#25D366;
-    color:#fff;
     width:55px;
     height:55px;
+    background:#25D366;
+    color:#fff;
     border-radius:50%;
-    font-size:28px;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-decoration:none;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    font-size:28px;
     z-index:999;
 }
-.whatsapp-float:hover{background:#1ebe5d;}
 
-/* ===== RESPONSIVE ===== */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
     .hero h1{font-size:30px;}
-    .gallery img{height:220px;}
-    .grid{gap:20px;}
+    .gallery{height:220px;}
 }
 </style>
 </head>
@@ -1033,7 +391,7 @@ footer{
     <h3>ALFAJR – White & Gold Edition</h3>
     <p class="desc"> Elegant white and gold ALFAJR watch blending sophistication with luxury. 
         Perfect for classy occasions and premium gifting.
-    </p></p>
+    </p>
     <p class="price"><span class="old-price">Rs 18000</span> <span class="new-price">Rs 16999</span></p>
     <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Casual%20Watch" target="_blank">Order Now</a>
   </div>
@@ -1092,7 +450,7 @@ footer{
     </div>
   </div>
   <div class="product-info">
-    <h3>Maxon </h3>
+    <h3>Tommy Hilfiger – Men's Casual Watch</h3>
     <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
     <p class="desc">✔ Water Resistant (3 ATM)<br>✔ Quartz Movement<br>✔ Casual & Formal Use</p>
     <p class="price"><span class="old-price">Rs 14000</span> <span class="new-price">Rs 12000</span></p>
@@ -1182,149 +540,58 @@ footer{
 
 <!-- ===== SCRIPTS ===== -->
 <script>
-function toggleMenu(){document.getElementById("navMenu").classList.toggle("active");}
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
 
-/* GALLERY SLIDER */
-document.querySelectorAll('.gallery').forEach(gallery=>{
-    const images=gallery.querySelectorAll('img');
-    const left=gallery.querySelector('.slider-arrow.left');
-    const right=gallery.querySelector('.slider-arrow.right');
-    const dots=gallery.querySelector('.slider-dots');
-    let current=0;
-
-    images.forEach((_,i)=>{
-        const dot=document.createElement('span');
-        if(i===0) dot.classList.add('active');
-        dots.appendChild(dot);
-        dot.addEventListener('click',()=>{goToSlide(i)});
-    });
-
-    function goToSlide(index){
-        images[current].classList.remove('active');
-        dots.children[current].classList.remove('active');
-        current=index;
-        images[current].classList.add('active');
-        dots.children[current].classList.add('active');
-    }
-
-    left.addEventListener('click',()=>{goToSlide(current-1<0?images.length-1:current-1)});
-    right.addEventListener('click',()=>{goToSlide((current+1)%images.length)});
-
-    setInterval(()=>{goToSlide((current+1)%images.length)},4000);
-});
-</script>
-
-</body>
-</html>
-    <div class="gallery">
-        <div class="gallery-track">
-            <img src="Gold power black1.jpg" class="active">
-            <img src="Gold power black2.jpg" class="active">
-        </div>
-        <div class="slider-arrow left">&#10094;</div>
-        <div class="slider-arrow right">&#10095;</div>
-        <div class="slider-dots"></div>
-    </div>
-    <h3>GoldPower– Black Dial</h3>
-    <p class="desc">
-        Elegant GoldPower and gold blending sophistication with luxury. 
-        Perfect for classy occasions and premium gifting.
-    </p>
-    <div class="price">
-  <span class="old-price">Rs 3000</span>
-  <span class="new-price">Rs 2500</span>
-</div>
-    <a class="order-btn" href="https://wa.me/923001007459" target="_blank">Order Now</a>
-</div>
-
-</div>
-
-
-</section>
-<!-- ABOUT -->
-<section class="about" id="about">
-<h2>About SilkPro</h2>
-<p><strong>SilkPro</strong> is a premium online store founded and managed by <strong>Altaf Nizam</strong>. We focus on quality, style, and customer trust.</p>
-<p>We provide stylish products with Cash on Delivery service all over Pakistan. Customer satisfaction is our top priority.</p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-<h2>Contact Us</h2>
-<p>📞 0300-1007459</p>
-<p>📧 silkpro.officail@gmail.com</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-© 2025 SilkPro
-</footer>
-
-<!-- SCRIPTS -->
-<script>
-function toggleMenu(){document.getElementById("navMenu").classList.toggle("active");}
-
+/* SAFE GALLERY SLIDER */
 document.querySelectorAll('.gallery').forEach(gallery => {
-    const images = gallery.querySelectorAll('img');
-    const leftArrow = document.createElement('div');
-    const rightArrow = document.createElement('div');
-    const dotsContainer = document.createElement('div');
+  const images = gallery.querySelectorAll('img');
+  if (images.length <= 1) return; // single image → no slider
 
-    leftArrow.className = 'arrow left';
-    leftArrow.innerHTML = '&#10094;';
-    rightArrow.className = 'arrow right';
-    rightArrow.innerHTML = '&#10095;';
-    dotsContainer.className = 'dots';
+  const left = gallery.querySelector('.slider-arrow.left');
+  const right = gallery.querySelector('.slider-arrow.right');
+  const dots = gallery.querySelector('.slider-dots');
 
-    gallery.appendChild(leftArrow);
-    gallery.appendChild(rightArrow);
-    gallery.appendChild(dotsContainer);
+  let current = 0;
 
-    let current = 0;
-    images[current].classList.add('active');
-
+  // Create dots only if container exists
+  if (dots) {
     images.forEach((_, i) => {
-        const dot = document.createElement('span');
-        if (i === 0) dot.classList.add('active');
-        dotsContainer.appendChild(dot);
-        dot.addEventListener('click', () => {
-            goToSlide(i);
-        });
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dots.appendChild(dot);
+
+      dot.addEventListener('click', () => goToSlide(i));
     });
+  }
 
-    function goToSlide(index) {
-        images[current].classList.remove('active');
-        dotsContainer.children[current].classList.remove('active');
-        current = index;
-        images[current].classList.add('active');
-        dotsContainer.children[current].classList.add('active');
-    }
+  function goToSlide(index) {
+    images[current].classList.remove('active');
+    if (dots) dots.children[current].classList.remove('active');
 
-    leftArrow.addEventListener('click', () => {
-        let next = current - 1 < 0 ? images.length - 1 : current - 1;
-        goToSlide(next);
+    current = index;
+
+    images[current].classList.add('active');
+    if (dots) dots.children[current].classList.add('active');
+  }
+
+  if (left) {
+    left.addEventListener('click', () => {
+      goToSlide(current - 1 < 0 ? images.length - 1 : current - 1);
     });
+  }
 
-    rightArrow.addEventListener('click', () => {
-        let next = (current + 1) % images.length;
-        goToSlide(next);
+  if (right) {
+    right.addEventListener('click', () => {
+      goToSlide((current + 1) % images.length);
     });
+  }
 
-    // Auto Slide
-    setInterval(() => {
-        let next = (current + 1) % images.length;
-        goToSlide(next);
-    }, 4000);
+  setInterval(() => {
+    goToSlide((current + 1) % images.length);
+  }, 4000);
 });
 </script>
-
-<a href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20place%20an%20order" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i></a>
-
 </body>
 </html>
-
-
-
-
-
