@@ -71,10 +71,10 @@ nav a:hover{color:#ff6600;}
     .menu-icon{display:block;}
 }
 
-/* ===== HERO (FIXED) ===== */
+/* ===== HERO ===== */
 .hero{
-    height: calc(100svh - 80px); /* ✅ mobile safe */
-    max-height: 700px;           /* ✅ content neeche dikhay */
+    height: calc(100svh - 80px);
+    max-height: 700px;
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
       url('css image.jpg') no-repeat center;
@@ -204,12 +204,113 @@ nav a:hover{color:#ff6600;}
 }
 .slider-dots span.active{background:#ff6600;}
 
+/* ===== ABOUT ===== */
+.about{
+  background:#fff;
+  padding:80px 0;
+  text-align:center;
+}
+.about h2{
+  font-size:40px;
+  margin-bottom:25px;
+  color:#ff6600;
+}
+.about p{
+  font-size:18px;
+  line-height:1.8;
+  max-width:850px;
+  margin:10px auto;
+  color:#333;
+}
+
+/* ===== CONTACT ===== */
+.contact{
+  background:#f9f9f9;
+  padding:80px 0;
+  text-align:center;
+}
+.contact h2{
+  font-size:40px;
+  margin-bottom:35px;
+  color:#ff6600;
+}
+.contact-cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+  margin-top:30px;
+}
+.contact-cards div{
+  background:#fff;
+  padding:25px 30px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  min-width:220px;
+}
+.contact-cards div h3{
+  font-size:20px;
+  margin-bottom:10px;
+  color:#ff6600;
+}
+.contact-cards div p{
+  font-size:16px;
+  color:#333;
+}
+.contact-cards div a{
+  color:#ff6600;
+  text-decoration:none;
+}
+.contact-cards div a:hover{
+  text-decoration:underline;
+}
+
+/* ===== TRUST ===== */
+.trust-section{
+  background:#fff;
+  padding:80px 20px;
+  text-align:center;
+}
+.trust-section h2{
+  font-size:40px;
+  margin-bottom:50px;
+  color:#ff6600;
+}
+.trust-cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+}
+.trust-cards div{
+  background:#f6f7f9;
+  padding:25px 30px;
+  border-radius:15px;
+  min-width:220px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+.trust-cards div h3{
+  font-size:20px;
+  margin-bottom:12px;
+  color:#ff6600;
+}
+.trust-cards div p{
+  font-size:16px;
+  line-height:1.6;
+  color:#333;
+}
+
 /* ===== FOOTER ===== */
 footer{
-    background:#222;
-    color:#fff;
-    padding:25px;
-    text-align:center;
+  background:#222;
+  color:#fff;
+  padding:30px 0;
+  text-align:center;
+}
+footer p{
+  margin:0;
+  font-size:16px;
+  line-height:1.5;
 }
 
 /* ===== WHATSAPP ===== */
@@ -497,46 +598,65 @@ footer{
 
 <!-- ABOUT -->
 <section class="about" id="about">
-<h2>About SilkPro</h2>
-<p><strong>SilkPro</strong> is a premium online store founded and managed by <strong>Altaf Nizam</strong>. We focus on quality, style, and customer trust.</p>
-<p>We provide stylish products with Cash on Delivery service all over Pakistan. Customer satisfaction is our top priority.</p>
+  <div class="container">
+    <h2>About SilkPro</h2>
+    <p><strong>SilkPro</strong> is a premium online store founded and managed by <strong>Altaf Nizam</strong>. We specialize in high-quality watches and accessories with a focus on style, reliability, and customer satisfaction.</p>
+    <p>We offer Cash on Delivery service across Pakistan and ensure every product is thoroughly quality-checked before shipping. Customer trust and satisfaction are our top priorities.</p>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-<h2>Contact Us</h2>
-<p>📞 0300-1007459</p>
-<p>📧 silkpro.officail@gmail.com</p>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="contact-cards">
+      <div>
+        <h3>📞 Phone</h3>
+        <p>0300-1007459</p>
+      </div>
+      <div>
+        <h3>📧 Email</h3>
+        <p>silkpro.officail@gmail.com</p>
+      </div>
+      <div>
+        <h3>🌐 WhatsApp</h3>
+        <p><a href="https://wa.me/923001007459" target="_blank">Chat with us</a></p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- TRUST -->
 <section class="trust-section">
-<h2>Why Choose SilkPro?</h2>
-<div>
-  <div>
-    <h3>✔ Quality Checked</h3>
-    <p>Har product dispatch se pehle check hota hai</p>
+  <div class="container">
+    <h2>Why Choose SilkPro?</h2>
+    <div class="trust-cards">
+      <div>
+        <h3>✔ Quality Checked</h3>
+        <p>Every product is inspected before shipping.</p>
+      </div>
+      <div>
+        <h3>🚚 Fast Delivery</h3>
+        <p>Reliable Pakistan-wide delivery.</p>
+      </div>
+      <div>
+        <h3>💰 Best Price</h3>
+        <p>Premium products at competitive prices.</p>
+      </div>
+      <div>
+        <h3>📞 Customer Support</h3>
+        <p>Quick assistance via WhatsApp and phone.</p>
+      </div>
+    </div>
   </div>
-  <div>
-    <h3>🚚 Fast Delivery</h3>
-    <p>Pakistan wide reliable delivery</p>
-  </div>
-  <div>
-    <h3>💰 Best Price</h3>
-    <p>Premium products at balanced prices</p>
-  </div>
-  <div>
-    <h3>📞 Support</h3>
-    <p>WhatsApp support available</p>
-  </div>
-</div>
 </section>
 
 <!-- FOOTER -->
-<footer>© 2025 SilkPro</footer>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/923001007459" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<footer>
+  <div class="container">
+    <p>© 2025 SilkPro. All Rights Reserved.</p>
+  </div>
+</footer>
 
 <!-- ===== SCRIPTS ===== -->
 <script>
