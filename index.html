@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <title>SilkPro | Premium Watches Store</title>
 <button onclick="toggleDark()" class="dark-btn">🌙</button>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff6600">
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -341,7 +344,7 @@ footer p{
 .whatsapp-label{
   position:absolute;
   right:70px;
-  top:50%;
+  top:30%;
   transform:translateY(-50%);
   background:#fff;
   color:#333;
@@ -557,6 +560,120 @@ body.dark footer{
   z-index:999;
 }
 
+.order-section{
+  background:#fff;
+  padding:80px 20px;
+  text-align:center;
+}
+.order-section h2{
+  font-size:36px;
+  margin-bottom:30px;
+  color:#ff6600;
+}
+#orderForm{
+  max-width:450px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+#orderForm input,
+#orderForm textarea{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+#orderForm button{
+  padding:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  
+}
+#orderForm button:hover{
+  background:#ff6600;
+}
+#orderForm select{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.reviews{
+  background:#f9f9f9;
+  padding:80px 20px;
+  text-align:center;
+}
+.review-card{
+  display:none;
+  max-width:600px;
+  margin:20px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  font-size:18px;
+}
+.review-card.active{display:block;}
+
+.payment-icons{
+  background:#000;
+  color:#fff;
+  padding:18px;
+  text-align:center;
+  font-size:15px;
+}
+
+.top-btn{
+  position:fixed;
+  bottom:160px;
+  left:20px;
+  background:#000;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:999;
+}
+
+.live-order{
+  position:fixed;
+  bottom:90px;
+  left:20px;
+  background:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  font-size:14px;
+  display:none;
+  z-index:999;
+}
+/* ===== QUICK WHATSAPP ICON (PRODUCT CARD) ===== */
+.quick-wa{
+  position:absolute;
+  top:15px;
+  right:15px;
+  width:40px;
+  height:40px;
+  background:#25D366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  z-index:20;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+.quick-wa:hover{
+  background:#1ebe5d;
+  transform:scale(1.1);
+}
 
 </style>
 </head>
@@ -593,6 +710,41 @@ body.dark footer{
 <section class="products" id="products">
 <h2>Featured Watches</h2>
 <div class="grid">
+
+  <section class="order-section" id="order">
+  <h2>Quick Order (Cash on Delivery)</h2>
+
+  <form id="orderForm">
+
+  <select id="productName" required onchange="updatePrice()">
+  <option value="Wireless Earbuds" data-price="1599">
+    Wireless Earbuds – Rs 1599
+  </option>
+  <option value="Smart Watch" data-price="2499">
+    Smart Watch – Rs 2499
+  </option>
+  <option value="Power Bank" data-price="1999">
+    Power Bank – Rs 1999
+  </option>
+</select>
+
+<input type="hidden" id="productPrice" value="1599">
+
+<p class="price-show">
+  Price: <strong>Rs <span id="showPrice">1599</span></strong>
+</p>
+  <!-- hidden price -->
+  <input type="hidden" id="productPrice" value="1599">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="tel" name="phone" placeholder="Mobile Number" required>
+  <textarea name="address" placeholder="Complete Address" required></textarea>
+
+  <button type="submit" class="buy-btn">Place Order Now</button>
+
+</form>
+
+</section>
 
 <!-- WATCH 1 -->
 <div class="product-card">
@@ -814,10 +966,9 @@ body.dark footer{
     </div>
   </div>
   <div class="product-info">
-    <h3>Tommy Hilfiger – Men's Casual Watch</h3>
-    <p class="desc">Stylish premium men's watch with elegant dial, durable strap, and casual-luxury design.</p>
-    <p class="desc">✔ Water Resistant (3 ATM)<br>✔ Quartz Movement<br>✔ Casual & Formal Use</p>
-    <p class="price"><span class="old-price">Rs 14000</span> <span class="new-price">Rs 12000</span></p>
+    <h3>Maxon Earbuds</h3>
+    <p class="desc">Deep bass • Touch control • Long battery life</p>
+    <p class="price"><span class="old-price">Rs 2500</span> <span class="new-price">Rs 2000</span></p>
     <a class="buy-btn" href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Tommy%20Hilfiger%20Watch" target="_blank">Order on WhatsApp</a>
   </div>
 </div>
@@ -849,17 +1000,19 @@ body.dark footer{
       <span class="new-price">Rs 1599</span>
     </p>
 
-    <a class="buy-btn"
-       href="https://wa.me/923001007459?text=Hello%20SilkPro%2C%20I%20want%20to%20order%20Wireless%20Earbuds"
-       target="_blank">
-       Order on WhatsApp
-    </a>
+    <button class="buy-btn"
+  onclick="orderNow('Wireless Bluetooth Earbuds', 1599)">
+Order on WhatsApp
+</button>
+
   </div>
 </div>
 <!-- ADD REST OF WATCHES SAME WAY ... -->
 
 </div>
 </section>
+<div class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</div>
+
 <div class="whatsapp-wrapper">
   <div class="whatsapp-label">
     <span class="whatsapp-dot"></span> Online Now
@@ -933,6 +1086,17 @@ body.dark footer{
 <a href="https://wa.me/923001007459" class="mobile-whatsapp-bar" target="_blank">
   Order on WhatsApp
 </a>
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+
+  <div class="review-card active">⭐⭐⭐⭐⭐ “Quality zabardast hai” – Ali</div>
+  <div class="review-card">⭐⭐⭐⭐⭐ “Fast delivery 👍” – Sara</div>
+  <div class="review-card">⭐⭐⭐⭐ “Worth the price” – Hamza</div>
+</section>
+
+<div class="payment-icons">
+  🚚 Fast Delivery | 💵 Cash on Delivery | 🔒 Secure Order
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -940,6 +1104,7 @@ body.dark footer{
     <p>© 2025 SilkPro. All Rights Reserved.</p>
   </div>
 </footer>
+<div class="live-order">Ali from Karachi just ordered 🔥</div>
 
 <!-- ===== SCRIPTS ===== -->
 <script>
@@ -1022,6 +1187,58 @@ function toggleDark(){
 document.querySelector(".chat-bubble").onclick=()=>{
   window.open("https://wa.me/923001007459","_blank");
 };
+
+
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let name = this.querySelector("input[name='name']").value;
+  let phone = this.querySelector("input[name='phone']").value;
+  let address = this.querySelector("textarea[name='address']").value;
+  let product = document.getElementById("productName").value;
+  let price = document.getElementById("productPrice").value;
+
+  let message =
+    "🛒 *New Order - SilkPro* %0A%0A" +
+    "📦 Product: " + product + "%0A" +
+    "💰 Price: Rs " + price + "%0A" +
+    "👤 Name: " + name + "%0A" +
+    "📞 Phone: " + phone + "%0A" +
+    "🏠 Address: " + address + "%0A%0A" +
+    "🚚 Cash on Delivery";
+
+  let url = "https://wa.me/923001007459?text=" + message;
+  window.open(url, "_blank");
+
+  this.reset();
+});
+
+
+
+
+
+let reviews=document.querySelectorAll(".review-card");
+let r=0;
+setInterval(()=>{
+  reviews[r].classList.remove("active");
+  r=(r+1)%reviews.length;
+  reviews[r].classList.add("active");
+},4000);
+
+
+let names=["Ali","Ahmed","Sara","Bilal","Hina"];
+let cities=["Karachi","Lahore","Islamabad","Multan","Hyderabad"];
+let popup=document.querySelector(".live-order");
+
+setInterval(()=>{
+  let n=names[Math.floor(Math.random()*names.length)];
+  let c=cities[Math.floor(Math.random()*cities.length)];
+  popup.innerText=n+" from "+c+" just ordered 🔥";
+  popup.style.display="block";
+  setTimeout(()=>popup.style.display="none",3000);
+},7000);
+
 
 </script>
 </body>
