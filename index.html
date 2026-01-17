@@ -667,70 +667,82 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <p>© 2025 SilkPro. All Rights Reserved.</p>
+  <section id="order" class="order-section">
+
+  <!-- ===== TOP MULTI COLOR SLIDER ===== -->
+  <div class="top-slider">
+    <h2>⚡ Quick Order – Cash on Delivery</h2>
   </div>
-</footer>
-<div class="live-order">Ali from Karachi just ordered 🔥</div>
 
-<section class="order-section" id="order">
-  <h2>Quick Order (Cash on Delivery)</h2>
+  <!-- ===== BOTTOM BLACK + GOLD SLIDER ===== -->
+  <div class="bottom-slider">
 
-  <form id="orderForm">
+    <form id="orderForm">
 
-  <select id="productName" required onchange="updatePrice()">
-  <option value="Tommy Hilfiger" data-price="12000">
-    Tommy Hilfiger – Rs 12000
-  </option>
-  <option value="Rolex white & Gold" data-price="16000">
-    Rolex white & Gold – Rs 16000
-  <option value="GoldPower– Gold Edition" data-price="2499">
-    GoldPower– Gold Edition – Rs 2499
-  </option>
-  <option value="ALFAJR Black" data-price="16499">
-    ALFAJR Black – Rs 16499
-  </option>
-  <option value="ALFAJR Gold" data-price="15999">
-    ALFAJR GOLD – Rs 15999
-  </option>
-  <option value="ALFAJR WHITE GOLD" data-price="16999">
-    ALFAJR WHITE GOLD – Rs 16999
-  </option>
-  <option value="Bravo Black" data-price="2499">
-    Bravo Black – Rs 2499
-  </option>
-  <option value="Rolex White" data-price="15000">
-    Roles white – Rs 15000
-  </option>
-  <option value="Maxon Earbuds" data-price="2000">
-    Maxon Earbuds – Rs 2000
-  </option>
-  <option value="Wireless Earbuds" data-price="1599">
-    Wireless Bluetooth Earbuds – Rs 1599
-  </option>
-</select>
+      <select id="productName" onchange="updatePrice()">
+        <option value="Tommy Hilfiger" data-price="12000">
+          Tommy Hilfiger – Rs 12000
+        </option>
+
+        <option value="Rolex white & Gold" data-price="16000">
+          Rolex white & Gold – Rs 16000
+        </option>
+
+        <option value="GoldPower– Gold Edition" data-price="2499">
+          GoldPower– Gold Edition – Rs 2499
+        </option>
+
+        <option value="ALFAJR Black" data-price="16499">
+          ALFAJR Black – Rs 16499
+        </option>
+
+        <option value="ALFAJR Gold" data-price="15999">
+          ALFAJR GOLD – Rs 15999
+        </option>
+
+        <option value="ALFAJR WHITE GOLD" data-price="16999">
+          ALFAJR WHITE GOLD – Rs 16999
+        </option>
+
+        <option value="Bravo Black" data-price="2499">
+          Bravo Black – Rs 2499
+        </option>
+
+        <option value="Rolex White" data-price="15000">
+          Rolex White – Rs 15000
+        </option>
+
+        <option value="Maxon Earbuds" data-price="2000">
+          Maxon Earbuds – Rs 2000
+        </option>
+
+        <option value="Wireless Earbuds" data-price="1599">
+          Wireless Bluetooth Earbuds – Rs 1599
+        </option>
+      </select>
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="address" placeholder="Complete Address" required></textarea>
+
+      <button type="submit">Place Order on WhatsApp</button>
+
+    </form>
+
+  </div>
+
+</section>
 
 <!-- <input type="hidden" id="productPrice" value="1599">
 
 <p class="price-show">
   Price: <strong>Rs <span id="showPrice">1599</span></strong>
 </p>
-  <!-- hidden price -->
+  hidden price -->
   <!-- <input type="hidden" id="productPrice" value="1599"> -->
 
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="tel" name="phone" placeholder="Mobile Number" required>
-  <textarea name="address" placeholder="Complete Address" required></textarea>
-
-  <button type="submit" class="buy-btn">Place Order Now</button>
-
-</form>
-
-
-</section>
 
 
 <script src="script.js"></script>
 </body>
 </html>
-
