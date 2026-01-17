@@ -1,8 +1,7 @@
 // ===============================
 // GLOBAL VARIABLES
 // ===============================
-let selectedProduct = "";
-let selectedPrice = "";
+
 
 // ===============================
 // OPEN ORDER FORM (Button OR Image Click)
