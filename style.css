@@ -546,9 +546,11 @@ body.dark footer{
 }
 
 .order-section{
-  background:#fff;
-  padding:80px 20px;
+  position:relative;
+  padding:90px 20px;
   text-align:center;
+  overflow:hidden;
+  color:#fff;
 }
 .order-section h2{
   font-size:36px;
@@ -674,4 +676,101 @@ body.dark footer{
 
   
   position:relative;
+}
+
+/* ===== ORDER FORM SLIDER BACKGROUND ===== */
+.order-section.slider-bg{
+  background:linear-gradient(-45deg,
+    #25D366,
+    #8e44ad,
+    #e91e63,
+    #ff9800);
+  background-size:400% 400%;
+  animation:gradientSlide 12s ease infinite;
+}
+
+/* black + gold overlay */
+.order-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55),
+    rgba(212,175,55,0.35)
+  );
+  z-index:0;
+}
+
+.order-section h2,
+#orderForm{
+  position:relative;
+  z-index:1;
+}
+
+@keyframes gradientSlide{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== TOP MULTI COLOR SLIDER ===== */
+.top-slider{
+  padding:30px 15px;
+  border-radius:18px 18px 0 0;
+  background:linear-gradient(
+    -45deg,
+    #25D366,
+    #ff0057,
+    #9b59b6,
+    #ff9800
+  );
+  background-size:400% 400%;
+  animation:colorSlide 10s ease infinite;
+}
+
+.top-slider h2{
+  margin:0;
+  font-size:20px;
+  font-weight:700;
+  color:#fff;
+}
+
+/* ===== BOTTOM BLACK GOLD SLIDER ===== */
+.bottom-slider{
+  padding:30px 20px;
+  border-radius:0 0 18px 18px;
+  background:linear-gradient(
+    -45deg,
+    #000000,
+    #1a1a1a,
+    #d4af37,
+    #000000
+  );
+  background-size:300% 300%;
+  animation:goldSlide 12s ease infinite;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes colorSlide{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+@keyframes goldSlide{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* BUTTON PREMIUM LOOK */
+#orderForm button{
+  background:#000;
+  border:2px solid #d4af37;
+  color:#d4af37;
+}
+
+#orderForm button:hover{
+  background:#d4af37;
+  color:#000;
 }
