@@ -1,10 +1,11 @@
 // ===============================
 // GLOBAL VARIABLES
 // ===============================
-
+let selectedProduct = "";
+let selectedPrice = "";
 
 // ===============================
-// OPEN ORDER FORM (Button OR Image Click)
+// OPEN ORDER FORM (BUTTON / IMAGE / OVERLAY CLICK)
 // ===============================
 function openOrderForm(product, price) {
   selectedProduct = product;
@@ -40,6 +41,7 @@ function updatePrice() {
 // DOM READY
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("JS LOADED");
 
   // ===============================
   // ORDER FORM SUBMIT → WHATSAPP
@@ -77,30 +79,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
-  // PRODUCT IMAGE CLICK → ORDER FORM
+  // PRODUCT CARD CLICK HANDLERS
   // ===============================
   document.querySelectorAll(".product-card").forEach(card => {
     const buyBtn = card.querySelector(".buy-btn");
-    const title = card.querySelector("h3")?.innerText || "";
-    const price = card.querySelector(".new-price")?.innerText.replace("Rs", "").trim() || "";
+    const overlay = card.querySelector(".quick-wa-overlay");
+    const title = card.getAttribute("data-product") || card.querySelector("h3")?.innerText.trim() || "";
+    const price = card.getAttribute("data-price") || card.querySelector(".new-price")?.innerText.replace("Rs", "").trim() || "";
 
-    // Image click
+    // IMAGE CLICK → OPEN FORM
     card.querySelectorAll(".gallery img").forEach(img => {
-      img.addEventListener("click", () => {
-        openOrderForm(title, price);
-      });
+      img.addEventListener("click", () => openOrderForm(title, price));
     });
 
-    // Button safety
-    if (buyBtn) {
-      buyBtn.addEventListener("click", () => {
-        openOrderForm(title, price);
-      });
-    }
+    // BUY BUTTON CLICK → OPEN FORM
+    if (buyBtn) buyBtn.addEventListener("click", () => openOrderForm(title, price));
+
+    // QUICK OVERLAY CLICK → OPEN FORM
+    if (overlay) overlay.addEventListener("click", () => openOrderForm(title, price));
   });
 
   // ===============================
-  // IMAGE SLIDER (MULTIPLE PRODUCTS)
+  // IMAGE SLIDER (ALL GALLERIES)
   // ===============================
   document.querySelectorAll(".product-card").forEach(card => {
     const images = card.querySelectorAll(".gallery img");
@@ -118,46 +118,83 @@ document.addEventListener("DOMContentLoaded", () => {
       images[i].classList.add("active");
     }
 
-    if (rightBtn) {
-      rightBtn.addEventListener("click", e => {
-        e.stopPropagation();
-        index = (index + 1) % images.length;
-        showImage(index);
-      });
-    }
+    // MANUAL SLIDE
+    if (rightBtn) rightBtn.addEventListener("click", e => { e.stopPropagation(); index = (index + 1) % images.length; showImage(index); });
+    if (leftBtn) leftBtn.addEventListener("click", e => { e.stopPropagation(); index = (index - 1 + images.length) % images.length; showImage(index); });
 
-    if (leftBtn) {
-      leftBtn.addEventListener("click", e => {
-        e.stopPropagation();
-        index = (index - 1 + images.length) % images.length;
-        showImage(index);
-      });
-    }
+    // AUTO SLIDE
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      showImage(index);
+    }, 2500);
   });
 
-});
+  // ===============================
+  // REVIEWS SLIDER
+  // ===============================
+  const reviews = document.querySelectorAll(".review-card");
+  if (reviews.length > 0) {
+    let r = 0;
+    setInterval(() => {
+      reviews[r].classList.remove("active");
+      r = (r + 1) % reviews.length;
+      reviews[r].classList.add("active");
+    }, 4000);
+  }
 
-function toggleDark(){
+  // ===============================
+  // LIVE ORDER POPUP
+  // ===============================
+  const names = ["Ali","Ahmed","Sara","Bilal","Hina"];
+  const cities = ["Karachi","Lahore","Islamabad","Multan","Hyderabad"];
+  const popup = document.querySelector(".live-order");
+  if (popup) {
+    setInterval(() => {
+      const n = names[Math.floor(Math.random()*names.length)];
+      const c = cities[Math.floor(Math.random()*cities.length)];
+      popup.innerText = `${n} from ${c} just ordered 🔥`;
+      popup.style.display = "block";
+      setTimeout(() => popup.style.display = "none", 3000);
+    }, 7000);
+  }
+
+}); // DOMContentLoaded end
+
+// ===============================
+// DARK MODE TOGGLE
+// ===============================
+function toggleDark() {
   document.body.classList.toggle("dark");
 }
 
-let reviews=document.querySelectorAll(".review-card");
-let r=0;
-setInterval(()=>{
-  reviews[r].classList.remove("active");
-  r=(r+1)%reviews.length;
-  reviews[r].classList.add("active");
-},4000);
+// ===== LIVE VIEWERS COUNTER =====
+const viewerCountEl = document.getElementById("viewerCount");
+const liveView = document.querySelector(".live-view");
+let viewers = 15; // starting number
 
+setInterval(() => {
+    // Randomly increase or decrease viewers
+    let change = Math.floor(Math.random() * 3); // 0,1,2
+    viewers += Math.random() > 0.5 ? change : -change;
+    if (viewers < 1) viewers = 1;
+    viewerCountEl.innerText = viewers;
 
-let names=["Ali","Ahmed","Sara","Bilal","Hina"];
-let cities=["Karachi","Lahore","Islamabad","Multan","Hyderabad"];
-let popup=document.querySelector(".live-order");
+    // show briefly
+    liveView.classList.add("show");
+    setTimeout(() => liveView.classList.remove("show"), 3000);
+}, 7000); // every 7 seconds
 
-setInterval(()=>{
-  let n=names[Math.floor(Math.random()*names.length)];
-  let c=cities[Math.floor(Math.random()*cities.length)];
-  popup.innerText=n+" from "+c+" just ordered 🔥";
-  popup.style.display="block";
-  setTimeout(()=>popup.style.display="none",3000);
-},7000);
+// ===== ORDER POPUP =====
+const orderPopup = document.getElementById("orderPopup");
+const names = ["Ali","Ahmed","Sara","Bilal","Hina"];
+const cities = ["Karachi","Lahore","Islamabad","Multan","Hyderabad"];
+
+setInterval(() => {
+    const n = names[Math.floor(Math.random() * names.length)];
+    const c = cities[Math.floor(Math.random() * cities.length)];
+
+    orderPopup.innerText = `✅ ${n} from ${c} just ordered`;
+    orderPopup.classList.add("show");
+
+    setTimeout(() => orderPopup.classList.remove("show"), 4000); // popup visible for 4s
+}, 10000); // every 10s
