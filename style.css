@@ -702,3 +702,23 @@ body.dark footer{
   text-align:left;
   margin:10px 0;
 }
+
+/* ===== ORDER SUCCESS POPUP ===== */
+.order-success{
+    position: fixed;
+    top: 120px;
+    right: -400px; /* hidden */
+    background: #16a34a; /* green success */
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: right 0.5s ease;
+    z-index: 9999;
+}
+
+.order-success.show{
+    right: 20px;
+}
+
