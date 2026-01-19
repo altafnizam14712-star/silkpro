@@ -726,7 +726,7 @@ body.dark footer{
 .top-btn{
   position: fixed;
   left: 18px;
-  bottom: 90px;
+  bottom: 160px;
   width: 48px;
   height: 48px;
   background: linear-gradient(135deg, #000, #c9a24d);
@@ -756,3 +756,4 @@ body.dark footer{
     bottom: 110px; /* WhatsApp se takra na ho */
   }
 }
+
