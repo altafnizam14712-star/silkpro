@@ -198,3 +198,80 @@ setInterval(() => {
 
     setTimeout(() => orderPopup.classList.remove("show"), 4000); // popup visible for 4s
 }, 10000); // every 10s
+
+/* ===============================
+   BONUS CONVERSION JS
+=============================== */
+
+// Fake Countdown
+document.querySelectorAll(".countdown").forEach(timer => {
+  let seconds = 3599;
+  setInterval(() => {
+    let h = Math.floor(seconds / 3600);
+    let m = Math.floor((seconds % 3600) / 60);
+    let s = seconds % 60;
+    timer.innerText = `Offer ends in ${h}:${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
+    seconds--;
+    if(seconds < 0) seconds = 3599;
+  },1000);
+});
+
+// Auto Star Rating
+document.querySelectorAll(".stars").forEach(star => {
+  const ratings = ["⭐⭐⭐⭐⭐","⭐⭐⭐⭐☆"];
+  let i=0;
+  setInterval(()=>{
+    star.innerText = ratings[i%2];
+    i++;
+  },3000);
+});
+
+// Order Success Popup
+function showOrderSuccess(){
+  const pop = document.getElementById("orderSuccess");
+  if(!pop) return;
+  pop.classList.add("show");
+  setTimeout(()=>pop.classList.remove("show"),3000);
+}
+
+// Order Sound
+const sound = new Audio("order.mp3");
+document.addEventListener("click", e=>{
+  if(e.target.closest(".buy-btn")){
+    sound.play().catch(()=>{});
+  }
+});
+function toggleMenu() {
+  const nav = document.getElementById("navMenu");
+  nav.classList.toggle("active");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".product-card").forEach(card => {
+    const waBtn = card.querySelector(".quick-wa");
+    const productName = card.querySelector("h3")?.innerText || "";
+
+    if (waBtn) {
+      // Use setAttribute instead of href assignment
+      waBtn.setAttribute(
+        "href",
+        `https://wa.me/923001007459?text=${encodeURIComponent(
+          "Hello I want more photos of " + productName
+        )}`
+      );
+    }
+
+    // BUY BUTTON / IMAGE CLICK → OPEN ORDER FORM
+    const buyBtn = card.querySelector(".buy-btn");
+    const images = card.querySelectorAll(".gallery img");
+    const price = card.querySelector(".new-price")?.innerText.replace("Rs", "").trim() || "";
+
+    if (buyBtn) {
+      buyBtn.addEventListener("click", () => openOrderForm(productName, price));
+    }
+
+    images.forEach(img => {
+      img.addEventListener("click", () => openOrderForm(productName, price));
+    });
+  });
+});
