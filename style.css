@@ -722,3 +722,37 @@ body.dark footer{
     right: 20px;
 }
 
+/* ===== SCROLL TO TOP BUTTON ===== */
+.top-btn{
+  position: fixed;
+  left: 18px;
+  bottom: 90px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #000, #c9a24d);
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* hover effect */
+.top-btn:hover{
+  transform: scale(1.1);
+}
+
+/* mobile size adjust */
+@media (max-width: 768px){
+  .top-btn{
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    bottom: 110px; /* WhatsApp se takra na ho */
+  }
+}
