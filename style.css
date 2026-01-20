@@ -618,6 +618,25 @@ body.dark footer{
     }
 }
 
+/* ===== ORDER SUCCESS POPUP ===== */
+.order-success{
+    position: fixed;
+    top: 120px;
+    right: -400px; /* hidden */
+    background: #16a34a; /* green success */
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: right 0.5s ease;
+    z-index: 9999;
+}
+
+.order-success.show{
+    right: 20px;
+}
+
 /* ===============================
    BONUS UI / CONVERSION BOOSTERS
 =============================== */
@@ -703,25 +722,6 @@ body.dark footer{
   margin:10px 0;
 }
 
-/* ===== ORDER SUCCESS POPUP ===== */
-.order-success{
-    position: fixed;
-    top: 120px;
-    right: -400px; /* hidden */
-    background: #16a34a; /* green success */
-    color: #fff;
-    padding: 14px 22px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 600;
-    transition: right 0.5s ease;
-    z-index: 9999;
-}
-
-.order-success.show{
-    right: 20px;
-}
-
 /* ===== SCROLL TO TOP BUTTON ===== */
 .top-btn{
   position: fixed;
@@ -757,3 +757,280 @@ body.dark footer{
   }
 }
 
+/* ===== IMAGE WRAPPER ===== */
+.gallery{
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== OVERLAY CONTAINER ===== */
+.product-overlays{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ===== BADGES ===== */
+.badge{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.badge.hot{
+  background:#e63946;
+}
+
+.badge.stock{
+  top: 50px;
+  background:#000;
+  color:#d4af37;
+  border:1px solid #d4af37;
+}
+
+/* ===== FREE DELIVERY ===== */
+.free-delivery{
+  position: absolute;
+  top: 90px;
+  left: 12px;
+  background:#25D366;
+  color:#fff;
+  padding:5px 10px;
+  font-size:12px;
+  border-radius:6px;
+}
+
+/* ===== STARS ===== */
+.stars{
+  position:absolute;
+  bottom:50px;
+  left:12px;
+  font-size:14px;
+  background:rgba(0,0,0,0.6);
+  padding:4px 8px;
+  border-radius:6px;
+  color:#FFD700;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.75);
+  color:#fff;
+  padding:6px 14px;
+  font-size:13px;
+  border-radius:20px;
+  font-weight:600;
+}
+@media(max-width:768px){
+  .badge,.free-delivery{
+    font-size:11px;
+  }
+  .countdown{
+    font-size:12px;
+  }
+}
+
+/* ===== PRODUCT TEXT FIX ===== */
+.product-card{
+  display:flex;
+  flex-direction:column;
+}
+
+.product-img{
+  position:relative;
+}
+
+.product-card h3,
+.product-card .price,
+.product-card .description{
+  position:relative;
+  z-index:1;
+  margin-top:10px;
+  text-align:left;
+}
+
+.gallery{
+  position:relative;
+}
+
+/* IMAGE OVERLAY ITEMS */
+.gallery .badge,
+.gallery .free-delivery,
+.gallery .stars,
+.gallery .countdown{
+  position:absolute;
+  z-index:20;
+}
+
+/* POSITIONS */
+.gallery .badge.hot{
+  top:10px;
+  left:10px;
+}
+
+.gallery .badge.stock{
+  top:45px;
+  left:10px;
+  background:#000;
+}
+
+.gallery .free-delivery{
+  bottom:10px;
+  left:10px;
+  background:#25D366;
+  color:#fff;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:12px;
+}
+
+.gallery .stars{
+  top:10px;
+  right:10px;
+  font-size:14px;
+  color:#ffd700;
+}
+
+.gallery .countdown{
+  bottom:10px;
+  right:10px;
+  background:#000;
+  color:#fff;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:12px;
+}
+.countdown {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 160px;      /* 🔥 FIX JUMP */
+  text-align: center;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.product-img {
+  position: relative;
+}
+
+.gallery {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* 🔥 FULL IMAGE AREA */
+  overflow: hidden;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.gallery img.active {
+  display: block;
+}
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* -------------------- Free Delivery Badge -------------------- */
+.free-delivery {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px; /* Countdown se chhota */
+    height: 35px; /* Countdown se chhota */
+    background-color: #28a745;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.75rem; /* Thoda chhota font */
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.free-delivery:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* -------------------- Review Card -------------------- */
+.review-card{
+  display:none;
+  max-width:600px;
+  margin:20px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  font-size:18px;
+}
+.review-card.active{display:block;}
+
+/* -------- Image Overlay Review -------- */
+.review-card.customer-review {
+    display: none; /* JS will control active */
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-size: 0.9rem;
+    color: #000;
+    transition: all 0.3s ease;
+}
+.review-card.customer-review.active {
+    display: block;
+}
+.review-card.image-review {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    min-width: 90px;
+    max-width: 160px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    display: flex; /* always visible */
+    flex-direction: column;
+    justify-content: center;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.review-card.image-review .review-rating {
+    font-size: 0.65rem;
+}
+.review-card.image-review .review-text {
+    font-size: 0.6rem;
+    line-height: 1.1;
+}
+.product-img {
+    position: relative; /* Required for absolute overlay */
+}
