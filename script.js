@@ -275,3 +275,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ===============================
+// COUNTDOWN TIMER (PER PRODUCT)
+// ===============================
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".product-card").forEach(function(card){
+
+    var countdownEl = card.querySelector(".countdown");
+    if (!countdownEl) return;
+
+    var time = 3600; // 1 hour fake timer
+
+    setInterval(function(){
+
+      var hrs  = Math.floor(time / 3600);
+      var mins = Math.floor((time % 3600) / 60);
+      var secs = time % 60;
+
+      countdownEl.innerText =
+        "Offer ends in " +
+        (hrs < 10 ? "0" + hrs : hrs) + ":" +
+        (mins < 10 ? "0" + mins : mins) + ":" +
+        (secs < 10 ? "0" + secs : secs);
+
+      time--;
+      if (time < 0) time = 3600;
+
+    }, 1000);
+
+  });
+
+});
