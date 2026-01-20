@@ -279,32 +279,29 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 // COUNTDOWN TIMER (PER PRODUCT)
 // ===============================
-document.addEventListener("DOMContentLoaded", function () {
+const countdownBox = document.querySelector(".countdown");
 
-  document.querySelectorAll(".product-card").forEach(function(card){
+countdownBox.innerHTML = `
+  <div><span id="days">00</span><small>Days</small></div>
+  <div><span id="hours">00</span><small>Hours</small></div>
+  <div><span id="minutes">00</span><small>Minutes</small></div>
+  <div><span id="seconds">00</span><small>Seconds</small></div>
+`;
 
-    var countdownEl = card.querySelector(".countdown");
-    if (!countdownEl) return;
+const targetDate = new Date("Feb 10, 2026 23:59:59").getTime();
 
-    var time = 3600; // 1 hour fake timer
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
 
-    setInterval(function(){
+  if (diff < 0) return;
 
-      var hrs  = Math.floor(time / 3600);
-      var mins = Math.floor((time % 3600) / 60);
-      var secs = time % 60;
-
-      countdownEl.innerText =
-        "Offer ends in " +
-        (hrs < 10 ? "0" + hrs : hrs) + ":" +
-        (mins < 10 ? "0" + mins : mins) + ":" +
-        (secs < 10 ? "0" + secs : secs);
-
-      time--;
-      if (time < 0) time = 3600;
-
-    }, 1000);
-
-  });
-
-});
+  document.getElementById("days").innerText =
+    Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").innerText =
+    Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("minutes").innerText =
+    Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  document.getElementById("seconds").innerText =
+    Math.floor((diff % (1000 * 60)) / 1000);
+}, 1000);
