@@ -279,29 +279,39 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 // COUNTDOWN TIMER (PER PRODUCT)
 // ===============================
-const countdownBox = document.querySelector(".countdown");
+(function () {
+    const countdownEl = document.querySelector(".countdown");
+    if (!countdownEl) return;
 
-countdownBox.innerHTML = `
-  <div><span id="days">00</span><small>Days</small></div>
-  <div><span id="hours">00</span><small>Hours</small></div>
-  <div><span id="minutes">00</span><small>Minutes</small></div>
-  <div><span id="seconds">00</span><small>Seconds</small></div>
-`;
+    const DURATION = 30 * 60 * 1000; // 30 minutes
+    const STORAGE_KEY = "silkpro_countdown_end";
 
-const targetDate = new Date("Feb 10, 2026 23:59:59").getTime();
+    let endTime = localStorage.getItem(STORAGE_KEY);
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = targetDate - now;
+    if (!endTime) {
+        endTime = Date.now() + DURATION;
+        localStorage.setItem(STORAGE_KEY, endTime);
+    } else {
+        endTime = parseInt(endTime);
+    }
 
-  if (diff < 0) return;
+    function updateCountdown() {
+        const now = Date.now();
+        const remaining = endTime - now;
 
-  document.getElementById("days").innerText =
-    Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById("hours").innerText =
-    Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  document.getElementById("minutes").innerText =
-    Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  document.getElementById("seconds").innerText =
-    Math.floor((diff % (1000 * 60)) / 1000);
-}, 1000);
+        if (remaining <= 0) {
+            localStorage.removeItem(STORAGE_KEY);
+            countdownEl.textContent = "⏰ Offer Ended";
+            return;
+        }
+
+        const minutes = Math.floor((remaining / 1000 / 60) % 60);
+        const seconds = Math.floor((remaining / 1000) % 60);
+
+        countdownEl.textContent =
+            `⏳ Offer ends in ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+})();
